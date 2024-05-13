@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Biome" load_steps=2 format=3 uid="uid://xvacoj2pfmab"]
+
+[ext_resource type="Script" path="res://scripts/biome.gd" id="1_dwumv"]
+
+[resource]
+script = ExtResource("1_dwumv")
+biome_name = "Tundra"
+altitude_min = 80.0
+altitude_max = 100.0
+moisture_min = 0.0
+moisture_max = 100.0
+temperature_min = 0.0
+temperature_max = 50.0
+terrain = 5
+terrain_set = 1
+layer = 0
+exclude = false

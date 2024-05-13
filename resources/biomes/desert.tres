@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Biome" load_steps=2 format=3 uid="uid://bsl087xbqudvj"]
+
+[ext_resource type="Script" path="res://scripts/biome.gd" id="1_p1uwh"]
+
+[resource]
+script = ExtResource("1_p1uwh")
+biome_name = "Desert"
+altitude_min = 30.0
+altitude_max = 80.0
+moisture_min = 0.0
+moisture_max = 20.0
+temperature_min = 0.0
+temperature_max = 100.0
+terrain = 0
+terrain_set = 1
+layer = 0
+exclude = false

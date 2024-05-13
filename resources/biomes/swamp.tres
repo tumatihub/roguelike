@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Biome" load_steps=2 format=3 uid="uid://c3dwrklnoh167"]
+
+[ext_resource type="Script" path="res://scripts/biome.gd" id="1_ikr8g"]
+
+[resource]
+script = ExtResource("1_ikr8g")
+biome_name = "Swamp"
+altitude_min = 10.0
+altitude_max = 30.0
+moisture_min = 0.0
+moisture_max = 100.0
+temperature_min = 0.0
+temperature_max = 100.0
+terrain = 4
+terrain_set = 1
+layer = 0
+exclude = false

@@ -1,29 +1,34 @@
-[gd_scene load_steps=40 format=3 uid="uid://m3vq4rmmt6p5"]
+[gd_scene load_steps=47 format=3 uid="uid://m3vq4rmmt6p5"]
 
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_pl8p8"]
 [ext_resource type="Texture2D" uid="uid://ce7qoaywljqa6" path="res://sprites/forest_/forest_.png" id="1_ryyj6"]
-[ext_resource type="FastNoiseLite" uid="uid://bxt71kj12lvwv" path="res://resources/simplex_noise.tres" id="2_d3djr"]
+[ext_resource type="Texture2D" uid="uid://dhs8xe7s5ynl4" path="res://resources/altitude.tres" id="2_bosx5"]
 [ext_resource type="PackedScene" uid="uid://dnbhdm4t34yso" path="res://scenes/tile_info.tscn" id="2_gpam0"]
+[ext_resource type="Texture2D" uid="uid://o3n3x11s6hx7" path="res://resources/moisture.tres" id="3_kjxlv"]
 [ext_resource type="Texture2D" uid="uid://df6ierd404vud" path="res://sprites/desert_/desert_.png" id="3_ms07h"]
+[ext_resource type="Texture2D" uid="uid://r75ovwrt1mfn" path="res://resources/temperature.tres" id="4_qscxx"]
 [ext_resource type="Texture2D" uid="uid://ctearwdyxqg5x" path="res://sprites/fantasy_/forestDesert_.png" id="4_uji6m"]
 [ext_resource type="Texture2D" uid="uid://dkcuva6wkacu4" path="res://sprites/tundra_/tundra_.png" id="5_fj0ec"]
 [ext_resource type="Texture2D" uid="uid://c5hldp0ba8kse" path="res://sprites/fantasy_/tundraSwampTaigaForestDesert_1.png" id="5_kuft1"]
+[ext_resource type="Resource" uid="uid://bsl087xbqudvj" path="res://resources/biomes/desert.tres" id="5_urm5w"]
 [ext_resource type="Texture2D" uid="uid://cxpia3pdtakka" path="res://sprites/taiga_/taiga_.png" id="6_1vaah"]
 [ext_resource type="Texture2D" uid="uid://bpxjbj7fps5s6" path="res://sprites/fantasy_/tundraSwampTaigaForestDesert_0.png" id="6_17ufs"]
+[ext_resource type="Resource" uid="uid://2sp8xeiv5ocf" path="res://resources/biomes/forest.tres" id="6_d8nr3"]
+[ext_resource type="Resource" uid="uid://boxivhgc1jwmv" path="res://resources/biomes/taiga.tres" id="7_7an8q"]
 [ext_resource type="Script" path="res://scripts/camera_move.gd" id="7_oa3i1"]
 [ext_resource type="Texture2D" uid="uid://dyo6f5hwhlywa" path="res://sprites/fantasy_/tundraSwamp_.png" id="7_vn1ug"]
 [ext_resource type="Texture2D" uid="uid://bkgl3tygahdu6" path="res://sprites/forest_/forestPath_.png" id="8_1ec6d"]
 [ext_resource type="Texture2D" uid="uid://gtb2tbne82a7" path="res://sprites/fantasy_/tundraTaiga_.png" id="8_ruo6v"]
+[ext_resource type="Resource" uid="uid://c3dwrklnoh167" path="res://resources/biomes/swamp.tres" id="8_wl1tk"]
 [ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="9_6pjqp"]
 [ext_resource type="Texture2D" uid="uid://dk2ioo3sot0om" path="res://sprites/fantasy_/tundraForest.png" id="9_gs5ci"]
+[ext_resource type="Resource" uid="uid://xvacoj2pfmab" path="res://resources/biomes/tundra.tres" id="9_jpojk"]
 [ext_resource type="Texture2D" uid="uid://ctqg4jje10ond" path="res://sprites/desert_/desert_ [resources].png" id="9_v8ulv"]
 [ext_resource type="Texture2D" uid="uid://26kmouxvqt1b" path="res://sprites/fantasy_/tundraDesert_.png" id="10_lv7tu"]
 [ext_resource type="Script" path="res://scripts/tile_debug.gd" id="10_rg2ir"]
 [ext_resource type="Texture2D" uid="uid://dqy4kdnbed3iw" path="res://sprites/fantasy_/taigaForest_.png" id="11_csiu3"]
 [ext_resource type="Texture2D" uid="uid://u8pcbg01qqqj" path="res://sprites/swamp_/swamp_.png" id="13_vx1cw"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_t42kk"]
-noise = ExtResource("2_d3djr")
+[ext_resource type="Texture2D" uid="uid://11cjoum1grep" path="res://icon.svg" id="29_hsom5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqrqp"]
 resource_name = "Forest"
@@ -4232,14 +4237,18 @@ sources/16 = SubResource("TileSetAtlasSource_pdke3")
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("tile_map")]
 script = ExtResource("1_pl8p8")
-noise_texture = SubResource("NoiseTexture2D_t42kk")
-forest_min = -0.1
-forest_max = 0.05
-desert_min = 0.05
-desert_max = 0.3
-width = 128
-height = 128
+noise_texture = ExtResource("2_bosx5")
+altitude_noise_texture = ExtResource("2_bosx5")
+moisture_noise_texture = ExtResource("3_kjxlv")
+temperature_noise_texture = ExtResource("4_qscxx")
+width = 512
+height = 512
 tile_map = NodePath("TileMap")
+_desert = ExtResource("5_urm5w")
+_forest = ExtResource("6_d8nr3")
+_taiga = ExtResource("7_7an8q")
+_swamp = ExtResource("8_wl1tk")
+_tundra = ExtResource("9_jpojk")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -4264,3 +4273,7 @@ zoom = Vector2(0.5, 0.5)
 script = ExtResource("7_oa3i1")
 speed = 105.115
 world = NodePath("..")
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+scale = Vector2(0.328125, 0.328125)
+texture = ExtResource("29_hsom5")

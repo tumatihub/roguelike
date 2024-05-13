@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Biome" load_steps=2 format=3 uid="uid://boxivhgc1jwmv"]
+
+[ext_resource type="Script" path="res://scripts/biome.gd" id="1_0hu6w"]
+
+[resource]
+script = ExtResource("1_0hu6w")
+biome_name = "Taiga"
+altitude_min = 80.0
+altitude_max = 100.0
+moisture_min = 0.0
+moisture_max = 100.0
+temperature_min = 50.0
+temperature_max = 100.0
+terrain = 3
+terrain_set = 1
+layer = 0
+exclude = false

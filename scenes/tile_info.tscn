@@ -1,0 +1,287 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnbhdm4t34yso"]
+
+[ext_resource type="Script" path="res://scenes/tile_info.gd" id="1_l07se"]
+[ext_resource type="Texture2D" uid="uid://cnc6sa3il7c1c" path="res://sprites/UI/crosshair022.png" id="2_uo4v4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_h7kkd"]
+font_size = 8
+
+[node name="TileInfo" type="Node2D" node_paths=PackedStringArray("terrain_label", "grid", "border", "arrows")]
+script = ExtResource("1_l07se")
+terrain_label = NodePath("Label")
+grid = NodePath("Control/MarginContainer/GridContainer")
+border = NodePath("Control/Border")
+arrows = NodePath("Control/Arrows")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -12.25
+offset_top = -30.42
+offset_right = -7.25
+offset_bottom = -18.42
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "0"
+label_settings = SubResource("LabelSettings_h7kkd")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Border" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="Control/Border"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+
+[node name="HSeparator2" type="HSeparator" parent="Control/Border"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 14.0
+offset_bottom = 18.0
+grow_horizontal = 2
+
+[node name="VSeparator" type="VSeparator" parent="Control/Border"]
+layout_mode = 0
+offset_left = -3.0
+offset_right = 1.0
+offset_bottom = 16.0
+
+[node name="VSeparator2" type="VSeparator" parent="Control/Border"]
+layout_mode = 0
+offset_left = 14.0
+offset_right = 18.0
+offset_bottom = 16.0
+
+[node name="Arrows" type="Control" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Arrow" type="TextureRect" parent="Control/Arrows"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.785398
+pivot_offset = Vector2(8, 24)
+mouse_filter = 2
+texture = ExtResource("2_uo4v4")
+expand_mode = 3
+
+[node name="Arrow2" type="TextureRect" parent="Control/Arrows"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(8, 24)
+mouse_filter = 2
+texture = ExtResource("2_uo4v4")
+expand_mode = 3
+
+[node name="Arrow3" type="TextureRect" parent="Control/Arrows"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.785398
+pivot_offset = Vector2(8, 24)
+mouse_filter = 2
+texture = ExtResource("2_uo4v4")
+expand_mode = 3
+
+[node name="Arrow4" type="TextureRect" parent="Control/Arrows"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5708
+pivot_offset = Vector2(8, 24)
+mouse_filter = 2
+texture = ExtResource("2_uo4v4")
+expand_mode = 3
+
+[node name="Arrow6" type="TextureRect" parent="Control/Arrows"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(8, 24)
+mouse_filter = 2
+texture = ExtResource("2_uo4v4")
+expand_mode = 3
+
+[node name="Arrow7" type="TextureRect" parent="Control/Arrows"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -2.35619
+pivot_offset = Vector2(8, 24)
+mouse_filter = 2
+texture = ExtResource("2_uo4v4")
+expand_mode = 3
+
+[node name="Arrow8" type="TextureRect" parent="Control/Arrows"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.14159
+pivot_offset = Vector2(8, 24)
+mouse_filter = 2
+texture = ExtResource("2_uo4v4")
+expand_mode = 3
+
+[node name="Arrow9" type="TextureRect" parent="Control/Arrows"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -3.92699
+pivot_offset = Vector2(8, 24)
+mouse_filter = 2
+texture = ExtResource("2_uo4v4")
+expand_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 1
+theme_override_constants/margin_top = 1
+theme_override_constants/margin_right = 1
+theme_override_constants/margin_bottom = 1
+
+[node name="GridContainer" type="GridContainer" parent="Control/MarginContainer"]
+process_mode = 3
+layout_mode = 2
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+columns = 3
+
+[node name="ColorRect" type="ColorRect" parent="Control/MarginContainer/GridContainer"]
+self_modulate = Color(1, 1, 1, 0.486275)
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ColorRect2" type="ColorRect" parent="Control/MarginContainer/GridContainer"]
+self_modulate = Color(1, 1, 1, 0.486275)
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ColorRect3" type="ColorRect" parent="Control/MarginContainer/GridContainer"]
+self_modulate = Color(1, 1, 1, 0.486275)
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ColorRect4" type="ColorRect" parent="Control/MarginContainer/GridContainer"]
+self_modulate = Color(1, 1, 1, 0.486275)
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ColorRect5" type="ColorRect" parent="Control/MarginContainer/GridContainer"]
+self_modulate = Color(1, 1, 1, 0.486275)
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ColorRect6" type="ColorRect" parent="Control/MarginContainer/GridContainer"]
+self_modulate = Color(1, 1, 1, 0.486275)
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ColorRect7" type="ColorRect" parent="Control/MarginContainer/GridContainer"]
+self_modulate = Color(1, 1, 1, 0.486275)
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ColorRect8" type="ColorRect" parent="Control/MarginContainer/GridContainer"]
+self_modulate = Color(1, 1, 1, 0.486275)
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ColorRect9" type="ColorRect" parent="Control/MarginContainer/GridContainer"]
+self_modulate = Color(1, 1, 1, 0.486275)
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+mouse_filter = 1
+
+[connection signal="mouse_entered" from="Control/MarginContainer/GridContainer" to="." method="_on_grid_container_mouse_entered"]
+[connection signal="mouse_exited" from="Control/MarginContainer/GridContainer" to="." method="_on_grid_container_mouse_exited"]

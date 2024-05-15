@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://bktaeedyrbgg6"]
+
+[ext_resource type="Script" path="res://scripts/interactable.gd" id="1_pfwm6"]
+[ext_resource type="FontFile" uid="uid://7oxj3q56bud8" path="res://fonts/bitbybit_ [Font].ttf" id="2_ftooc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_76p1i"]
+font = ExtResource("2_ftooc")
+font_size = 7
+
+[node name="Interactable" type="Node2D"]
+script = ExtResource("1_pfwm6")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+z_index = 100
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -20.43
+offset_right = 27.0
+offset_bottom = -7.43
+grow_horizontal = 2
+grow_vertical = 0
+text = "USE THIS"
+label_settings = SubResource("LabelSettings_76p1i")
+horizontal_alignment = 1
+
+[node name="InteractableArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableArea"]
+
+[connection signal="area_entered" from="InteractableArea" to="." method="_on_interactable_area_entered"]
+[connection signal="area_exited" from="InteractableArea" to="." method="_on_interactable_area_exited"]

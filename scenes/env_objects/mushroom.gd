@@ -1,7 +1,10 @@
 extends Node2D
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	var player = body as Player
-	if player == null:
-		return
-	print("Player got a mushroom")
+@export var interactable: Interactable
+
+func _ready() -> void:
+	interactable.interacted.connect(_on_interact)
+
+func _on_interact(interactor: Interactor) -> void:
+	print("%s just got a Brown Mushroom!" % [interactor.owner.name])
+	queue_free()

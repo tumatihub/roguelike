@@ -1,0 +1,115 @@
+[gd_scene load_steps=23 format=3 uid="uid://cr32yo4lnmlng"]
+
+[ext_resource type="Script" path="res://scripts/chest.gd" id="1_dsaq6"]
+[ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="1_uo328"]
+[ext_resource type="PackedScene" uid="uid://bktaeedyrbgg6" path="res://scenes/interactable.tscn" id="3_mag45"]
+[ext_resource type="Script" path="res://scripts/terrain_sprite_changer.gd" id="4_cm5un"]
+[ext_resource type="Texture2D" uid="uid://ctqg4jje10ond" path="res://sprites/desert_/desert_ [resources].png" id="5_mt4qc"]
+[ext_resource type="Texture2D" uid="uid://b6i5ek28pg3h0" path="res://sprites/taiga_/taiga_ [resources].png" id="6_xj8ut"]
+[ext_resource type="Texture2D" uid="uid://cj28tfaabp3w8" path="res://sprites/swamp_/swamp_ [resources].png" id="7_giat1"]
+[ext_resource type="Texture2D" uid="uid://bu4b6ljh83jcq" path="res://sprites/tundra_/tundra_ [resources].png" id="8_cfahu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4pdi"]
+atlas = ExtResource("1_uo328")
+region = Rect2(16, 80, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4i3kc"]
+atlas = ExtResource("1_uo328")
+region = Rect2(32, 80, 16, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ydvnq"]
+radius = 15.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iohwc"]
+size = Vector2(12, 9)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjyqk"]
+atlas = ExtResource("1_uo328")
+region = Rect2(16, 80, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktq5p"]
+atlas = ExtResource("5_mt4qc")
+region = Rect2(16, 80, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0pp7"]
+atlas = ExtResource("6_xj8ut")
+region = Rect2(16, 80, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dsxcw"]
+atlas = ExtResource("7_giat1")
+region = Rect2(16, 80, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy027"]
+atlas = ExtResource("8_cfahu")
+region = Rect2(16, 80, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvtv0"]
+atlas = ExtResource("1_uo328")
+region = Rect2(32, 80, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_own6f"]
+atlas = ExtResource("5_mt4qc")
+region = Rect2(32, 80, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q4fgl"]
+atlas = ExtResource("6_xj8ut")
+region = Rect2(32, 80, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84le4"]
+atlas = ExtResource("7_giat1")
+region = Rect2(32, 80, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chlui"]
+atlas = ExtResource("8_cfahu")
+region = Rect2(32, 80, 16, 32)
+
+[node name="SmallChest" type="Node2D" node_paths=PackedStringArray("_interactable", "_opened_sprite", "_closed_sprite")]
+script = ExtResource("1_dsaq6")
+_interactable = NodePath("Interactable")
+_opened_sprite = NodePath("Opened")
+_closed_sprite = NodePath("Closed")
+
+[node name="Closed" type="Sprite2D" parent="."]
+z_index = 10
+y_sort_enabled = true
+position = Vector2(0, -8)
+texture = SubResource("AtlasTexture_x4pdi")
+
+[node name="Opened" type="Sprite2D" parent="."]
+visible = false
+z_index = 10
+y_sort_enabled = true
+position = Vector2(0, -8)
+texture = SubResource("AtlasTexture_4i3kc")
+
+[node name="Interactable" parent="." instance=ExtResource("3_mag45")]
+_interaction_text = "OPEN"
+
+[node name="CollisionShape2D" parent="Interactable/InteractableArea" index="0"]
+shape = SubResource("CircleShape2D_ydvnq")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_iohwc")
+
+[node name="TerrainSpriteChangerClosed" type="Node" parent="." node_paths=PackedStringArray("_sprite")]
+script = ExtResource("4_cm5un")
+_sprite = NodePath("../Closed")
+_forest_texture = SubResource("AtlasTexture_wjyqk")
+_desert_texture = SubResource("AtlasTexture_ktq5p")
+_taiga_texture = SubResource("AtlasTexture_p0pp7")
+_swamp_texture = SubResource("AtlasTexture_dsxcw")
+_tundra_texture = SubResource("AtlasTexture_cy027")
+
+[node name="TerrainSpriteChangerOpened" type="Node" parent="." node_paths=PackedStringArray("_sprite")]
+script = ExtResource("4_cm5un")
+_sprite = NodePath("../Opened")
+_forest_texture = SubResource("AtlasTexture_yvtv0")
+_desert_texture = SubResource("AtlasTexture_own6f")
+_taiga_texture = SubResource("AtlasTexture_q4fgl")
+_swamp_texture = SubResource("AtlasTexture_84le4")
+_tundra_texture = SubResource("AtlasTexture_chlui")
+
+[editable path="Interactable"]

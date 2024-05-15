@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4hqgk0khjgpy"]
+
+[ext_resource type="Script" path="res://scripts/interactor.gd" id="1_3ulw5"]
+
+[node name="Interactor" type="Node2D"]
+script = ExtResource("1_3ulw5")
+
+[node name="InteractorArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractorArea"]
+
+[connection signal="area_entered" from="InteractorArea" to="." method="_on_interactor_area_entered"]
+[connection signal="area_exited" from="InteractorArea" to="." method="_on_interactor_area_exited"]

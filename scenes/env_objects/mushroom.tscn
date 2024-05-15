@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bt8mggwwuyg6g"]
+[gd_scene load_steps=14 format=3 uid="uid://bt8mggwwuyg6g"]
 
 [ext_resource type="Script" path="res://scenes/env_objects/mushroom.gd" id="1_dbmw7"]
 [ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="2_bfwl6"]
@@ -6,13 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://b6i5ek28pg3h0" path="res://sprites/taiga_/taiga_ [resources].png" id="4_ynxlw"]
 [ext_resource type="Texture2D" uid="uid://cj28tfaabp3w8" path="res://sprites/swamp_/swamp_ [resources].png" id="5_2160l"]
 [ext_resource type="Texture2D" uid="uid://bu4b6ljh83jcq" path="res://sprites/tundra_/tundra_ [resources].png" id="6_mcn40"]
+[ext_resource type="PackedScene" uid="uid://bktaeedyrbgg6" path="res://scenes/interactable.tscn" id="7_fiqg2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lnlmk"]
 atlas = ExtResource("2_bfwl6")
 region = Rect2(112, 16, 16, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mw4cv"]
-size = Vector2(6, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h2x4m"]
 atlas = ExtResource("2_bfwl6")
@@ -30,20 +28,17 @@ region = Rect2(112, 16, 16, 16)
 atlas = ExtResource("6_mcn40")
 region = Rect2(112, 16, 16, 16)
 
-[node name="Mushroom" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_yscdj"]
+
+[node name="Mushroom" type="Node2D" node_paths=PackedStringArray("interactable")]
 y_sort_enabled = true
 script = ExtResource("1_dbmw7")
+interactable = NodePath("Interactable")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 10
 y_sort_enabled = true
 texture = SubResource("AtlasTexture_lnlmk")
-
-[node name="Area2D" type="Area2D" parent="Sprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
-position = Vector2(-2, -1)
-shape = SubResource("RectangleShape2D_mw4cv")
 
 [node name="TerrainSpriteChanger" type="Node" parent="." node_paths=PackedStringArray("_sprite")]
 script = ExtResource("3_sthqn")
@@ -53,4 +48,11 @@ _taiga_texture = SubResource("AtlasTexture_0js3l")
 _swamp_texture = SubResource("AtlasTexture_w1nk1")
 _tundra_texture = SubResource("AtlasTexture_sy268")
 
-[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Interactable" parent="." instance=ExtResource("7_fiqg2")]
+_interaction_text = "GET"
+
+[node name="CollisionShape2D" parent="Interactable/InteractableArea" index="0"]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_yscdj")
+
+[editable path="Interactable"]

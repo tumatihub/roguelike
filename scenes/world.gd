@@ -187,15 +187,3 @@ func _get_all_surrounding_cells(coords_cell: Vector2i) -> Array[Vector2i]:
 			cells_coords.append(Vector2i(x, y))
 	return cells_coords
 
-func get_biome_with_position(position: Vector2) -> Terrain:
-	var tile_data := tile_map.get_cell_tile_data(WorldLayer.TERRAIN, tile_map.local_to_map(position))
-	if tile_data == null:
-		return Terrain.NONE
-	match tile_data.terrain:
-		0: return Terrain.DESERT
-		1: return Terrain.FOREST
-		2: return Terrain.CLIFFS
-		3: return Terrain.TAIGA
-		4: return Terrain.SWAMP
-		5: return Terrain.TUNDRA
-		_: return Terrain.NONE

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnvObject" load_steps=2 format=3 uid="uid://du6m1mls7ixbg"]
+
+[ext_resource type="Script" path="res://scripts/env_object.gd" id="1_4n80q"]
+
+[resource]
+script = ExtResource("1_4n80q")
+probability = 1.0
+tile_source = 7
+atlas_coords = Vector2i(3, 1)
+object_name = "Pink Tree"

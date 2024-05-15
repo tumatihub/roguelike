@@ -16,6 +16,9 @@ const MAX_RANGE = 100
 @export var layer: int
 @export var exclude: bool = false
 
+@export_category("Environment Objects")
+@export var env_objects: Array[EnvObject]
+
 func is_this_biome(altitude_sample: float, altitude_range: Array[float], \
 		moisture_sample: float, moisture_range: Array[float], \
 		temperature_sample: float, temperature_range: Array[float]) -> bool:

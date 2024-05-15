@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Biome" load_steps=2 format=3 uid="uid://c3dwrklnoh167"]
+[gd_resource type="Resource" script_class="Biome" load_steps=3 format=3 uid="uid://c3dwrklnoh167"]
 
+[ext_resource type="Resource" uid="uid://csamnk4kdxri6" path="res://resources/env_objects/brown_mushroom.tres" id="1_2ydxi"]
 [ext_resource type="Script" path="res://scripts/biome.gd" id="1_ikr8g"]
 
 [resource]
@@ -15,3 +16,4 @@ terrain = 4
 terrain_set = 1
 layer = 0
 exclude = false
+env_objects = Array[Resource("res://scripts/env_object.gd")]([ExtResource("1_2ydxi")])

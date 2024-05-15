@@ -1,6 +1,8 @@
 class_name World
 extends Node2D
 
+signal terrain_created
+
 @export var noise_texture: NoiseTexture2D
 @export var altitude_noise_texture: NoiseTexture2D
 @export var moisture_noise_texture: NoiseTexture2D
@@ -15,6 +17,22 @@ extends Node2D
 @export var _taiga: Biome
 @export var _swamp: Biome
 @export var _tundra: Biome
+
+enum WorldLayer {
+	TERRAIN,
+	ENV,
+	WATER
+}
+
+enum Terrain {
+	DESERT,
+	FOREST,
+	CLIFFS,
+	TAIGA,
+	SWAMP,
+	TUNDRA,
+	NONE
+}
 
 var _desert_cells: Array[Vector2i]
 var _forest_cells: Array[Vector2i]
@@ -34,6 +52,10 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		create_terrain()
+		_update_border()
+		_place_env_objects(_forest, _forest_cells)
+		_place_env_objects(_taiga, _taiga_cells)
+		_place_env_objects(_tundra, _tundra_cells)
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		var tile_pos := tile_map.local_to_map(get_global_mouse_position())
 		var altitude := inverse_lerp(altitude_range[0], altitude_range[1], altitude_noise_texture.noise.get_noise_2d(tile_pos.x, tile_pos.y)) * 100
@@ -42,12 +64,14 @@ func _input(event: InputEvent) -> void:
 		print("alt: %s , moist: %s, temp: %s" % [altitude, moisture, temperature])
 		
 func create_terrain() -> void:
+	_place_water_outside()
+	seed(altitude_noise_texture.noise.get_seed())
 	altitude_range = _get_noise_range(altitude_noise_texture)
 	moisture_range = _get_noise_range(moisture_noise_texture)
 	temperature_range = _get_noise_range(temperature_noise_texture)
 	for x in range(width):
 		for y in range(height):
-			var coords = Vector2i(x, y)
+			var coords := Vector2i(x, y)
 			var altitude_sample := altitude_noise_texture.noise.get_noise_2d(x, y)
 			var moisture_sample := moisture_noise_texture.noise.get_noise_2d(x, y)
 			var temperature_sample := temperature_noise_texture.noise.get_noise_2d(x, y)
@@ -75,6 +99,15 @@ func create_terrain() -> void:
 	tile_map.set_cells_terrain_connect(_swamp.layer, _swamp_cells, _swamp.terrain_set, _swamp.terrain, false)
 	tile_map.set_cells_terrain_connect(_tundra.layer, _tundra_cells, _tundra.terrain_set, _tundra.terrain, false)
 	print("Terrain created in %d seconds" % [(Time.get_ticks_msec() - time)/1000])
+	terrain_created.emit()
+
+func _place_water_outside() -> void:
+	var margin := 50
+	for x in range(-margin, width + margin):
+		for y in range(-margin, height + margin):
+			if x >= 0 and x < width and y >= 0 and y < height:
+				continue
+			tile_map.set_cell(WorldLayer.WATER, Vector2i(x, y), 1, Vector2i(4, 7))
 
 func _update_border() -> void:
 	var border_cells: Array[Dictionary]
@@ -103,6 +136,38 @@ func _update_border() -> void:
 	for c in border_cells_coords:
 		tile_map.set_cells_terrain_connect(0, [c], 1, 2, false)
 
+func _place_env_objects(biome: Biome, biome_cells: Array[Vector2i]) -> void:
+	var place_stats: Array[Dictionary]
+	for cell in biome_cells:
+		var surrounding_cells := _get_all_surrounding_cells(cell)
+		var is_border := false
+		for c in surrounding_cells:
+			var tile_data = tile_map.get_cell_tile_data(WorldLayer.TERRAIN, c)
+			if tile_data != null:
+				if tile_data.terrain != biome.terrain:
+					is_border = true
+					break
+		if is_border:
+			continue
+		for obj in biome.env_objects:
+			if randf() * 100 < obj.probability:
+				tile_map.set_cell(WorldLayer.ENV, cell, obj.tile_source, obj.atlas_coords, obj.alternative_tile)
+				var found := false
+				for i in place_stats:
+					if i.get("name") == obj.object_name:
+						i["qty"] += 1
+						found = true
+						break
+				if not found:
+					place_stats.append({"name": obj.object_name, "qty": 1})
+				break
+	_print_biome_stats(place_stats, biome)
+
+func _print_biome_stats(place_stats: Array[Dictionary], biome: Biome) -> void:
+	print("Stats for: %s" % [biome.biome_name])
+	for i in place_stats:
+		print("%s -> %d" % [i.get("name"), i.get("qty")])
+
 func _get_noise_range(noise_texture: NoiseTexture2D) -> Array[float]:
 	var max_noise := -INF
 	var min_noise := INF
@@ -121,3 +186,16 @@ func _get_all_surrounding_cells(coords_cell: Vector2i) -> Array[Vector2i]:
 		for y in range(coords_cell.y-1, coords_cell.y+2):
 			cells_coords.append(Vector2i(x, y))
 	return cells_coords
+
+func get_biome_with_position(position: Vector2) -> Terrain:
+	var tile_data := tile_map.get_cell_tile_data(WorldLayer.TERRAIN, tile_map.local_to_map(position))
+	if tile_data == null:
+		return Terrain.NONE
+	match tile_data.terrain:
+		0: return Terrain.DESERT
+		1: return Terrain.FOREST
+		2: return Terrain.CLIFFS
+		3: return Terrain.TAIGA
+		4: return Terrain.SWAMP
+		5: return Terrain.TUNDRA
+		_: return Terrain.NONE

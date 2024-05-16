@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_kwia7")
-probability = 1.0
-tile_source = 7
-atlas_coords = Vector2i(2, 1)
 object_name = "Red Tree"
+probability = 0.5
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 4

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=45 format=3 uid="uid://b55ny3kbquwm2"]
+[gd_resource type="TileSet" load_steps=48 format=3 uid="uid://b55ny3kbquwm2"]
 
 [ext_resource type="Texture2D" uid="uid://ce7qoaywljqa6" path="res://sprites/forest_/forest_.png" id="1_ai0cc"]
 [ext_resource type="Texture2D" uid="uid://df6ierd404vud" path="res://sprites/desert_/desert_.png" id="2_bh14x"]
@@ -21,8 +21,11 @@
 [ext_resource type="PackedScene" uid="uid://be37u5ln3lc3l" path="res://scenes/env_objects/green_tree.tscn" id="19_45m1q"]
 [ext_resource type="PackedScene" uid="uid://cr32yo4lnmlng" path="res://scenes/env_objects/small_chest.tscn" id="19_e78tg"]
 [ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="20_4teep"]
+[ext_resource type="PackedScene" uid="uid://cvpq24wopfqdr" path="res://scenes/env_objects/red_tree.tscn" id="21_iw0sp"]
 [ext_resource type="Texture2D" uid="uid://ctqg4jje10ond" path="res://sprites/desert_/desert_ [resources].png" id="21_vnxci"]
+[ext_resource type="PackedScene" uid="uid://dc3gwv45y21sj" path="res://scenes/env_objects/pine_tree.tscn" id="22_8ohxj"]
 [ext_resource type="Texture2D" uid="uid://u8pcbg01qqqj" path="res://sprites/swamp_/swamp_.png" id="22_vndvf"]
+[ext_resource type="PackedScene" uid="uid://cs56ywl2itnxe" path="res://scenes/env_objects/pink_tree.tscn" id="23_y2y01"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqrqp"]
 resource_name = "Forest"
@@ -5727,6 +5730,9 @@ resource_name = "Env Objects"
 scenes/1/scene = ExtResource("18_c1fph")
 scenes/2/scene = ExtResource("19_e78tg")
 scenes/3/scene = ExtResource("19_45m1q")
+scenes/4/scene = ExtResource("21_iw0sp")
+scenes/5/scene = ExtResource("22_8ohxj")
+scenes/6/scene = ExtResource("23_y2y01")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7qrb"]
 texture = ExtResource("20_4teep")

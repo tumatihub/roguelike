@@ -1,8 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://btwiidhdd1air"]
+[gd_scene load_steps=21 format=3 uid="uid://btwiidhdd1air"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_cajfh"]
 [ext_resource type="Texture2D" uid="uid://cbi4gfbrcr8py" path="res://sprites/player/mPlayer_ [human].png" id="1_tf072"]
 [ext_resource type="Script" path="res://scripts/camera_move.gd" id="3_kphuh"]
+[ext_resource type="PackedScene" uid="uid://cgqhcytswb7m8" path="res://scenes/weapons/axe.tscn" id="4_egqqq"]
 [ext_resource type="PackedScene" uid="uid://c4hqgk0khjgpy" path="res://scenes/interactor.tscn" id="4_y53py"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h7wna"]
@@ -108,16 +109,16 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_tbojf"]
 radius = 12.0
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_body")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_body", "_weapon")]
 script = ExtResource("1_cajfh")
 _body = NodePath("Body")
+_weapon = NodePath("Body/WeaponHandle/Axe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_h7wna")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.5, 0.5)
 limit_smoothed = true
 position_smoothing_enabled = true
 script = ExtResource("3_kphuh")
@@ -128,6 +129,12 @@ y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_tpd2u")
 animation = &"idle"
 offset = Vector2(0, -12)
+
+[node name="WeaponHandle" type="Node2D" parent="Body"]
+z_index = 10
+position = Vector2(0, -4)
+
+[node name="Axe" parent="Body/WeaponHandle" instance=ExtResource("4_egqqq")]
 
 [node name="Interactor" parent="." instance=ExtResource("4_y53py")]
 

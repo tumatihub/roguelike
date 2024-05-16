@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_kij4x")
-probability = 1.0
-tile_source = 7
-atlas_coords = Vector2i(6, 1)
 object_name = "Pine Tree"
+probability = 0.5
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 5

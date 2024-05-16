@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 @export var _speed: float = 100
 @export var _body: AnimatedSprite2D
+@export var _weapon: Weapon
 
 var _x: float
 var _y: float
@@ -24,6 +25,9 @@ func _input(event: InputEvent) -> void:
 	_y = Input.get_axis("up", "down")
 	
 	if _x < 0:
-		_body.flip_h = true
+		_body.scale.x = -1
 	elif _x > 0:
-		_body.flip_h = false
+		_body.scale.x = 1
+		
+	if Input.is_action_just_pressed("attack"):
+		_weapon.attack()

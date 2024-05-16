@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_6o0dw")
 object_name = "Green Tree"
-probability = 2.0
+probability = 1.0
 tile_source = 6
 atlas_coords = Vector2i(0, 0)
 alternative_tile = 3

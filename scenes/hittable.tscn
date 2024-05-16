@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsuwoetb5xmvv"]
+
+[ext_resource type="Script" path="res://scripts/hittable.gd" id="1_qi24y"]
+[ext_resource type="PackedScene" uid="uid://dvbjtg8l5g4cv" path="res://scenes/damage_label.tscn" id="2_y8ttj"]
+
+[node name="Hittable" type="Node2D"]
+script = ExtResource("1_qi24y")
+_damage_label_scene = ExtResource("2_y8ttj")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+z_index = 20
+debug_color = Color(0.187468, 0.62463, 0.0136412, 0.42)

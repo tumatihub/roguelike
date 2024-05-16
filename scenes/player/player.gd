@@ -4,11 +4,11 @@ extends CharacterBody2D
 @export var _speed: float = 100
 @export var _body: AnimatedSprite2D
 @export var _weapon: Weapon
+@export var _camera_2d: Camera2D
 
 var _x: float
 var _y: float
 
-@onready var _camera_2d: Camera2D = $Camera2D
 
 func _process(delta: float) -> void:
 	if velocity.length() > 0:

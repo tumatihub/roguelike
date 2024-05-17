@@ -1,0 +1,44 @@
+[gd_scene load_steps=10 format=3 uid="uid://b34600pr5vbai"]
+
+[ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="1_1eymv"]
+[ext_resource type="Script" path="res://scripts/item_giver.gd" id="2_2fobo"]
+[ext_resource type="Resource" uid="uid://c171nrurwf2vv" path="res://resources/items/wood.tres" id="3_en0kj"]
+[ext_resource type="Script" path="res://scripts/inventory/slot_data.gd" id="4_ko88b"]
+[ext_resource type="PackedScene" uid="uid://bktaeedyrbgg6" path="res://scenes/interactable.tscn" id="5_bifcp"]
+[ext_resource type="PackedScene" uid="uid://cblbt014yhlhc" path="res://scenes/item_giver_quantity_label.tscn" id="5_yk2p7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tki3"]
+atlas = ExtResource("1_1eymv")
+region = Rect2(96, 128, 16, 16)
+
+[sub_resource type="Resource" id="Resource_b1xrb"]
+script = ExtResource("4_ko88b")
+item_data = ExtResource("3_en0kj")
+quantity = 5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dw41h"]
+
+[node name="PinkTreeWoodDrop" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_0tki3")
+
+[node name="ItemGiver" type="Node" parent="." node_paths=PackedStringArray("_interactable")]
+script = ExtResource("2_2fobo")
+_interactable = NodePath("../Interactable")
+_slot_data = SubResource("Resource_b1xrb")
+_max_random_quantity = 2
+_min_random_quantity = 5
+_is_random = true
+
+[node name="ItemGiverQuantityLabel" parent="ItemGiver" instance=ExtResource("5_yk2p7")]
+
+[node name="Interactable" parent="." instance=ExtResource("5_bifcp")]
+_interaction_text = "GET"
+
+[node name="CollisionShape2D" parent="Interactable/InteractableArea" index="0"]
+shape = SubResource("CircleShape2D_dw41h")
+
+[connection signal="item_gave" from="ItemGiver" to="." method="queue_free"]
+
+[editable path="Interactable"]

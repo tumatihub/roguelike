@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://1x2pyh8jjp3b"]
+
+[ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="1_vb1ap"]
+[ext_resource type="Script" path="res://scripts/item_giver.gd" id="2_ih105"]
+[ext_resource type="PackedScene" uid="uid://cblbt014yhlhc" path="res://scenes/item_giver_quantity_label.tscn" id="3_6stwx"]
+[ext_resource type="PackedScene" uid="uid://bktaeedyrbgg6" path="res://scenes/interactable.tscn" id="3_a7e43"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tki3"]
+atlas = ExtResource("1_vb1ap")
+region = Rect2(112, 48, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dw41h"]
+
+[node name="ItemDrop" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_0tki3")
+
+[node name="ItemGiver" type="Node" parent="." node_paths=PackedStringArray("_interactable")]
+script = ExtResource("2_ih105")
+_interactable = NodePath("../Interactable")
+
+[node name="ItemGiverQuantityLabel" parent="ItemGiver" instance=ExtResource("3_6stwx")]
+
+[node name="Interactable" parent="." instance=ExtResource("3_a7e43")]
+_interaction_text = "GET"
+
+[node name="CollisionShape2D" parent="Interactable/InteractableArea" index="0"]
+shape = SubResource("CircleShape2D_dw41h")
+
+[connection signal="item_gave" from="ItemGiver" to="." method="queue_free"]
+
+[editable path="Interactable"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://crnm7akjdiu0u"]
+
+[ext_resource type="PackedScene" uid="uid://w4mpb648ecvi" path="res://scenes/inventory/item_slot.tscn" id="1_ph11l"]
+[ext_resource type="Script" path="res://scripts/inventory/inventory.gd" id="1_w643o"]
+[ext_resource type="Resource" uid="uid://c310vcgre6jhy" path="res://resources/inventory/inventory.tres" id="2_lo1go"]
+
+[node name="Inventory" type="PanelContainer" node_paths=PackedStringArray("_grid_container")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_w643o")
+_inventory_data = ExtResource("2_lo1go")
+_grid_container = NodePath("MarginContainer/GridContainer")
+_item_slot_scene = ExtResource("1_ph11l")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 2
+columns = 6
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]

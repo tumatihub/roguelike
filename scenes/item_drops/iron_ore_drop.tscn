@@ -1,0 +1,43 @@
+[gd_scene load_steps=10 format=3 uid="uid://odgbp0euhfsk"]
+
+[ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="1_e4ggm"]
+[ext_resource type="Script" path="res://scripts/item_giver.gd" id="2_kt3nv"]
+[ext_resource type="Resource" uid="uid://duxyvk2x2l3da" path="res://resources/items/iron.tres" id="3_6lx0c"]
+[ext_resource type="Script" path="res://scripts/inventory/slot_data.gd" id="4_7aw1i"]
+[ext_resource type="PackedScene" uid="uid://cblbt014yhlhc" path="res://scenes/item_giver_quantity_label.tscn" id="5_38bh5"]
+[ext_resource type="PackedScene" uid="uid://bktaeedyrbgg6" path="res://scenes/interactable.tscn" id="5_blhmq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tki3"]
+atlas = ExtResource("1_e4ggm")
+region = Rect2(80, 64, 16, 16)
+
+[sub_resource type="Resource" id="Resource_jqyir"]
+script = ExtResource("4_7aw1i")
+item_data = ExtResource("3_6lx0c")
+quantity = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dw41h"]
+
+[node name="IronOreDrop" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_0tki3")
+
+[node name="ItemGiver" type="Node" parent="." node_paths=PackedStringArray("_interactable")]
+script = ExtResource("2_kt3nv")
+_interactable = NodePath("../Interactable")
+_slot_data = SubResource("Resource_jqyir")
+_min_random_quantity = 3
+_is_random = true
+
+[node name="ItemGiverQuantityLabel" parent="ItemGiver" instance=ExtResource("5_38bh5")]
+
+[node name="Interactable" parent="." instance=ExtResource("5_blhmq")]
+_interaction_text = "GET"
+
+[node name="CollisionShape2D" parent="Interactable/InteractableArea" index="0"]
+shape = SubResource("CircleShape2D_dw41h")
+
+[connection signal="item_gave" from="ItemGiver" to="." method="queue_free"]
+
+[editable path="Interactable"]

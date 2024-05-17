@@ -1,10 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://cvpq24wopfqdr"]
+[gd_scene load_steps=16 format=3 uid="uid://cvpq24wopfqdr"]
 
 [ext_resource type="Script" path="res://scripts/env_tree.gd" id="1_lbabe"]
 [ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="2_ha2pj"]
 [ext_resource type="Script" path="res://scripts/terrain_sprite_changer.gd" id="3_f5mfd"]
 [ext_resource type="Texture2D" uid="uid://b6i5ek28pg3h0" path="res://sprites/taiga_/taiga_ [resources].png" id="4_4tkos"]
 [ext_resource type="PackedScene" uid="uid://bsuwoetb5xmvv" path="res://scenes/hittable.tscn" id="5_gx1tm"]
+[ext_resource type="Script" path="res://scripts/item_dropper.gd" id="6_angvp"]
+[ext_resource type="PackedScene" uid="uid://co4odgkkqid0g" path="res://scenes/item_drops/red_tree_wood_drop.tscn" id="7_64xhl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7sjv"]
 atlas = ExtResource("2_ha2pj")
@@ -85,10 +87,11 @@ _data = {
 "shake": SubResource("Animation_4r3v5")
 }
 
-[node name="RedTree" type="Node2D" node_paths=PackedStringArray("_animation_player", "_hittable")]
+[node name="RedTree" type="Node2D" node_paths=PackedStringArray("_animation_player", "_hittable", "_item_dropper")]
 script = ExtResource("1_lbabe")
 _animation_player = NodePath("AnimationPlayer")
 _hittable = NodePath("Hittable")
+_item_dropper = NodePath("ItemDropper")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 10
@@ -124,5 +127,9 @@ libraries = {
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -21)
+
+[node name="ItemDropper" type="Node2D" parent="."]
+script = ExtResource("6_angvp")
+item_drop_scene = ExtResource("7_64xhl")
 
 [editable path="Hittable"]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=10 format=3 uid="uid://bx3f45wfh4hg6"]
+
+[ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="1_wmmue"]
+[ext_resource type="Script" path="res://scripts/item_giver.gd" id="2_fxuau"]
+[ext_resource type="Resource" uid="uid://cp5av5qd0t20j" path="res://resources/items/rock.tres" id="3_lypq4"]
+[ext_resource type="Script" path="res://scripts/inventory/slot_data.gd" id="4_h20jp"]
+[ext_resource type="PackedScene" uid="uid://bktaeedyrbgg6" path="res://scenes/interactable.tscn" id="5_0nmjh"]
+[ext_resource type="PackedScene" uid="uid://cblbt014yhlhc" path="res://scenes/item_giver_quantity_label.tscn" id="5_w4km2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0tki3"]
+atlas = ExtResource("1_wmmue")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="Resource" id="Resource_jqyir"]
+script = ExtResource("4_h20jp")
+item_data = ExtResource("3_lypq4")
+quantity = 1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dw41h"]
+
+[node name="BigRockDrop" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_0tki3")
+
+[node name="ItemGiver" type="Node" parent="." node_paths=PackedStringArray("_interactable")]
+script = ExtResource("2_fxuau")
+_interactable = NodePath("../Interactable")
+_slot_data = SubResource("Resource_jqyir")
+_max_random_quantity = 10
+_min_random_quantity = 15
+_is_random = true
+
+[node name="ItemGiverQuantityLabel" parent="ItemGiver" instance=ExtResource("5_w4km2")]
+
+[node name="Interactable" parent="." instance=ExtResource("5_0nmjh")]
+_interaction_text = "GET"
+
+[node name="CollisionShape2D" parent="Interactable/InteractableArea" index="0"]
+shape = SubResource("CircleShape2D_dw41h")
+
+[connection signal="item_gave" from="ItemGiver" to="." method="queue_free"]
+
+[editable path="Interactable"]

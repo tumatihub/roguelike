@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://cp5av5qd0t20j"]
+
+[ext_resource type="Script" path="res://scripts/inventory/item_data.gd" id="1_8jlra"]
+[ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="2_rscsj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsxfr"]
+atlas = ExtResource("2_rscsj")
+region = Rect2(64, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_8jlra")
+texture = SubResource("AtlasTexture_jsxfr")
+item_name = "Rock"
+description = ""
+stackable = true

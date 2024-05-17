@@ -1,7 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://btwiidhdd1air"]
+[gd_scene load_steps=21 format=3 uid="uid://btwiidhdd1air"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_cajfh"]
 [ext_resource type="Texture2D" uid="uid://cbi4gfbrcr8py" path="res://sprites/player/mPlayer_ [human].png" id="1_tf072"]
+[ext_resource type="Resource" uid="uid://c310vcgre6jhy" path="res://resources/inventory/inventory.tres" id="2_2qo1a"]
 [ext_resource type="PackedScene" uid="uid://cgqhcytswb7m8" path="res://scenes/weapons/axe.tscn" id="4_egqqq"]
 [ext_resource type="PackedScene" uid="uid://c4hqgk0khjgpy" path="res://scenes/interactor.tscn" id="4_y53py"]
 
@@ -112,6 +113,7 @@ radius = 12.0
 script = ExtResource("1_cajfh")
 _body = NodePath("Body")
 _weapon = NodePath("Body/WeaponHandle/Axe")
+_inventory_data = ExtResource("2_2qo1a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.5)

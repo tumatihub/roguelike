@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://di8tx7vpyb837"]
+
+[ext_resource type="Script" path="res://scripts/inventory/item_data.gd" id="1_cnnc4"]
+[ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="2_vht5q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsxfr"]
+atlas = ExtResource("2_vht5q")
+region = Rect2(96, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_cnnc4")
+texture = SubResource("AtlasTexture_jsxfr")
+item_name = "Gold"
+description = ""
+stackable = true

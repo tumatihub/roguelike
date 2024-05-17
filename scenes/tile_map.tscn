@@ -21,4 +21,3 @@ layer_2/tile_data = PackedInt32Array()
 [node name="TileDebug" type="Node2D" parent="."]
 script = ExtResource("2_4044r")
 tile_info_scene = ExtResource("3_rdm2m")
-debug = true

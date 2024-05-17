@@ -5,10 +5,19 @@ extends CharacterBody2D
 @export var _body: AnimatedSprite2D
 @export var _weapon: Weapon
 @export var _camera_2d: Camera2D
+@export var _inventory_data: InventoryData
 
 var _x: float
 var _y: float
+var _can_move := true
 
+func _ready() -> void:
+	var player_menu = get_tree().get_first_node_in_group("player_menu") as PlayerMenu
+	if player_menu:
+		player_menu.toggle_visibility.connect(_on_toggle_player_menu_visibility)
+
+func try_receiving_item(slot_data: SlotData) -> bool:
+	return _inventory_data.try_add_item(slot_data)
 
 func _process(delta: float) -> void:
 	if velocity.length() > 0:
@@ -17,10 +26,15 @@ func _process(delta: float) -> void:
 		_body.play("idle")
 
 func _physics_process(_delta: float) -> void:
+	if not _can_move:
+		return
 	velocity = Vector2(_x, _y).normalized() * _speed * 1/_camera_2d.zoom
 	move_and_slide()
 	
 func _input(event: InputEvent) -> void:
+	if not _can_move:
+		return
+	
 	_x = Input.get_axis("left", "right")
 	_y = Input.get_axis("up", "down")
 	
@@ -29,5 +43,8 @@ func _input(event: InputEvent) -> void:
 	elif _x > 0:
 		_body.scale.x = 1
 		
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_pressed("attack"):
 		_weapon.attack()
+
+func _on_toggle_player_menu_visibility(is_visible: bool) -> void:
+	_can_move = !is_visible

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cblbt014yhlhc"]
+
+[ext_resource type="FontFile" uid="uid://7oxj3q56bud8" path="res://fonts/bitbybit_ [Font].ttf" id="1_e602p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tvrw6"]
+font = ExtResource("1_e602p")
+font_size = 5
+
+[node name="ItemGiverQuantityLabel" type="Label"]
+offset_right = 11.0
+offset_bottom = 7.0
+text = "x2"
+label_settings = SubResource("LabelSettings_tvrw6")

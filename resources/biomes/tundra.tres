@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_dwumv")
 biome_name = "Tundra"
-altitude_min = 80.0
+altitude_min = 70.0
 altitude_max = 100.0
 moisture_min = 0.0
 moisture_max = 100.0

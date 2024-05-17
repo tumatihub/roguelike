@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://r5e2nnucggs6"]
+
+[ext_resource type="Script" path="res://scripts/inventory/item_data.gd" id="1_ujonx"]
+[ext_resource type="Texture2D" uid="uid://cj28tfaabp3w8" path="res://sprites/swamp_/swamp_ [resources].png" id="2_c37k3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsxfr"]
+atlas = ExtResource("2_c37k3")
+region = Rect2(112, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_ujonx")
+texture = SubResource("AtlasTexture_jsxfr")
+item_name = "Yellow Mushroom"
+description = ""
+stackable = true

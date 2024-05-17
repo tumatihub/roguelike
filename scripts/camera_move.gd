@@ -3,6 +3,7 @@ extends Camera2D
 @export var _speed: float = 10
 @export var _zoom_steps := 0.05
 @export var _target: Node2D
+@export var _follow_offset: float = 10
 
 var _current_zoom: float
 
@@ -12,7 +13,7 @@ func _ready() -> void:
 	if (nodes.size() == 0):
 		return
 	
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	if _target == null:
 		return
 	var next_pos = lerp(global_position, _target.global_position, delta * _speed)

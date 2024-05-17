@@ -1,7 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cs56ywl2itnxe"]
+[gd_scene load_steps=12 format=3 uid="uid://cs56ywl2itnxe"]
 
 [ext_resource type="Script" path="res://scripts/env_tree.gd" id="1_37w8j"]
 [ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="2_hkhik"]
+[ext_resource type="Script" path="res://scripts/item_dropper.gd" id="4_4d1gj"]
+[ext_resource type="PackedScene" uid="uid://b34600pr5vbai" path="res://scenes/item_drops/pink_tree_wood_drop.tscn" id="5_hnln1"]
 [ext_resource type="PackedScene" uid="uid://bsuwoetb5xmvv" path="res://scenes/hittable.tscn" id="5_nl4mo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f7sjv"]
@@ -75,10 +77,11 @@ _data = {
 "shake": SubResource("Animation_4r3v5")
 }
 
-[node name="PinkTree" type="Node2D" node_paths=PackedStringArray("_animation_player", "_hittable")]
+[node name="PinkTree" type="Node2D" node_paths=PackedStringArray("_animation_player", "_hittable", "_item_dropper")]
 script = ExtResource("1_37w8j")
 _animation_player = NodePath("AnimationPlayer")
 _hittable = NodePath("Hittable")
+_item_dropper = NodePath("ItemDropper")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 10
@@ -108,5 +111,9 @@ libraries = {
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -21)
+
+[node name="ItemDropper" type="Node2D" parent="."]
+script = ExtResource("4_4d1gj")
+item_drop_scene = ExtResource("5_hnln1")
 
 [editable path="Hittable"]

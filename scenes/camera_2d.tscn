@@ -4,5 +4,5 @@
 
 [node name="Camera2D" type="Camera2D"]
 limit_smoothed = true
-position_smoothing_enabled = true
 script = ExtResource("1_oc7x0")
+_speed = 5.0

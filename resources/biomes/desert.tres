@@ -1,6 +1,31 @@
-[gd_resource type="Resource" script_class="Biome" load_steps=2 format=3 uid="uid://bsl087xbqudvj"]
+[gd_resource type="Resource" script_class="Biome" load_steps=6 format=3 uid="uid://bsl087xbqudvj"]
 
 [ext_resource type="Script" path="res://scripts/biome.gd" id="1_p1uwh"]
+[ext_resource type="Script" path="res://scripts/env_object.gd" id="1_yelea"]
+
+[sub_resource type="Resource" id="Resource_1xwrd"]
+script = ExtResource("1_yelea")
+object_name = ""
+probability = 1.0
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 22
+
+[sub_resource type="Resource" id="Resource_k24jl"]
+script = ExtResource("1_yelea")
+object_name = ""
+probability = 1.0
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 21
+
+[sub_resource type="Resource" id="Resource_02bcp"]
+script = ExtResource("1_yelea")
+object_name = ""
+probability = 0.1
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 14
 
 [resource]
 script = ExtResource("1_p1uwh")
@@ -15,3 +40,4 @@ terrain = 0
 terrain_set = 1
 layer = 0
 exclude = false
+env_objects = Array[ExtResource("1_yelea")]([SubResource("Resource_1xwrd"), SubResource("Resource_k24jl"), SubResource("Resource_02bcp")])

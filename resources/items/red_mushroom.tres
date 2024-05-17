@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://6uhogtmty020"]
+
+[ext_resource type="Script" path="res://scripts/inventory/item_data.gd" id="1_o5jyd"]
+[ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="2_r61t8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsxfr"]
+atlas = ExtResource("2_r61t8")
+region = Rect2(144, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_o5jyd")
+texture = SubResource("AtlasTexture_jsxfr")
+item_name = "Red Mushroom"
+description = ""
+stackable = true

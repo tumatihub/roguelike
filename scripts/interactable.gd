@@ -32,4 +32,6 @@ func _on_interactable_area_exited(area: Area2D) -> void:
 		_current_interactor = null
 
 func interact(interactor: Interactor) -> void:
+	if not _can_interact:
+		return
 	interacted.emit(interactor)

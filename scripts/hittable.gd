@@ -8,6 +8,7 @@ signal lost_all_hit_points
 @export var _weapon_type: Weapon.Type
 @export var _damage_label_scene: PackedScene
 @export var _label_position: Marker2D
+@export var _can_lose_hit_points := true
 
 var _current_hit_points: int
 
@@ -16,6 +17,8 @@ func _ready() -> void:
 
 func hit(damage: int, type: Weapon.Type) -> void:
 	got_hit.emit()
+	if not _can_lose_hit_points:
+		return
 	var real_damage := 1
 	if type == _weapon_type:
 		real_damage = damage

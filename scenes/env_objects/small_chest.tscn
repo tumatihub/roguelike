@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cr32yo4lnmlng"]
+[gd_scene load_steps=27 format=3 uid="uid://cr32yo4lnmlng"]
 
 [ext_resource type="Script" path="res://scripts/chest.gd" id="1_dsaq6"]
 [ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="1_uo328"]
@@ -8,6 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://b6i5ek28pg3h0" path="res://sprites/taiga_/taiga_ [resources].png" id="6_xj8ut"]
 [ext_resource type="Texture2D" uid="uid://cj28tfaabp3w8" path="res://sprites/swamp_/swamp_ [resources].png" id="7_giat1"]
 [ext_resource type="Texture2D" uid="uid://bu4b6ljh83jcq" path="res://sprites/tundra_/tundra_ [resources].png" id="8_cfahu"]
+[ext_resource type="Script" path="res://scripts/item_giver.gd" id="9_arek7"]
+[ext_resource type="Resource" uid="uid://c171nrurwf2vv" path="res://resources/items/wood.tres" id="10_ykncr"]
+[ext_resource type="Script" path="res://scripts/inventory/slot_data.gd" id="11_rlf3o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x4pdi"]
 atlas = ExtResource("1_uo328")
@@ -63,11 +66,17 @@ region = Rect2(32, 80, 16, 32)
 atlas = ExtResource("8_cfahu")
 region = Rect2(32, 80, 16, 32)
 
-[node name="SmallChest" type="Node2D" node_paths=PackedStringArray("_interactable", "_opened_sprite", "_closed_sprite")]
+[sub_resource type="Resource" id="Resource_jsvl6"]
+script = ExtResource("11_rlf3o")
+item_data = ExtResource("10_ykncr")
+quantity = 5
+
+[node name="SmallChest" type="Node2D" node_paths=PackedStringArray("_interactable", "_opened_sprite", "_closed_sprite", "_item_giver")]
 script = ExtResource("1_dsaq6")
 _interactable = NodePath("Interactable")
 _opened_sprite = NodePath("Opened")
 _closed_sprite = NodePath("Closed")
+_item_giver = NodePath("ItemGiver")
 
 [node name="Closed" type="Sprite2D" parent="."]
 z_index = 10
@@ -111,5 +120,13 @@ _desert_texture = SubResource("AtlasTexture_own6f")
 _taiga_texture = SubResource("AtlasTexture_q4fgl")
 _swamp_texture = SubResource("AtlasTexture_84le4")
 _tundra_texture = SubResource("AtlasTexture_chlui")
+
+[node name="ItemGiver" type="Node" parent="." node_paths=PackedStringArray("_interactable")]
+script = ExtResource("9_arek7")
+_interactable = NodePath("../Interactable")
+_slot_data = SubResource("Resource_jsvl6")
+_max_random_quantity = 5
+_min_random_quantity = 10
+_is_random = true
 
 [editable path="Interactable"]

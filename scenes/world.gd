@@ -53,8 +53,10 @@ func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		create_terrain()
 		_update_border()
+		_place_env_objects(_desert, _desert_cells)
 		_place_env_objects(_forest, _forest_cells)
 		_place_env_objects(_taiga, _taiga_cells)
+		_place_env_objects(_swamp, _swamp_cells)
 		_place_env_objects(_tundra, _tundra_cells)
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		var tile_pos := tile_map.local_to_map(get_global_mouse_position())

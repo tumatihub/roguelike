@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://67j4u0e1i1hy"]
+
+[ext_resource type="FontFile" uid="uid://7oxj3q56bud8" path="res://fonts/bitbybit_ [Font].ttf" id="1_qa5mx"]
+[ext_resource type="Script" path="res://scenes/UI/player_menu.gd" id="2_2klk2"]
+[ext_resource type="PackedScene" uid="uid://crnm7akjdiu0u" path="res://scenes/inventory/inventory.tscn" id="2_xgdu3"]
+
+[node name="PlayerMenu" type="TabContainer" node_paths=PackedStringArray("_inventory") groups=["player_menu"]]
+visible = false
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 169.0
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_qa5mx")
+theme_override_font_sizes/font_size = 5
+tab_focus_mode = 0
+script = ExtResource("2_2klk2")
+_inventory = NodePath("INVENTORY")
+
+[node name="INVENTORY" parent="." instance=ExtResource("2_xgdu3")]
+layout_mode = 2
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="tab_selected" from="." to="." method="_on_tab_selected"]

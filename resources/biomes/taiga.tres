@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_0hu6w")
 biome_name = "Taiga"
-altitude_min = 80.0
+altitude_min = 70.0
 altitude_max = 100.0
 moisture_min = 0.0
 moisture_max = 100.0

@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=3 uid="uid://s43jcwwewfld"]
+
+[ext_resource type="Script" path="res://scripts/env_tree.gd" id="1_lfs53"]
+[ext_resource type="Texture2D" uid="uid://cj28tfaabp3w8" path="res://sprites/swamp_/swamp_ [resources].png" id="2_4hmg2"]
+[ext_resource type="PackedScene" uid="uid://bsuwoetb5xmvv" path="res://scenes/hittable.tscn" id="3_ep3gb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7sjv"]
+atlas = ExtResource("2_4hmg2")
+region = Rect2(32, 16, 16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i044w"]
+size = Vector2(10, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q4mvn"]
+size = Vector2(8, 15)
+
+[sub_resource type="Animation" id="Animation_wh4is"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_4r3v5"]
+resource_name = "shake"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-1.5, -8), Vector2(1.5, -8), Vector2(0, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-0.174533, 0.174533, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k35ga"]
+_data = {
+"RESET": SubResource("Animation_wh4is"),
+"shake": SubResource("Animation_4r3v5")
+}
+
+[node name="RedMushroomTree" type="Node2D" node_paths=PackedStringArray("_animation_player", "_hittable")]
+script = ExtResource("1_lfs53")
+_animation_player = NodePath("AnimationPlayer")
+_hittable = NodePath("Hittable")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+y_sort_enabled = true
+position = Vector2(0, -8)
+texture = SubResource("AtlasTexture_f7sjv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_i044w")
+
+[node name="Hittable" parent="." node_paths=PackedStringArray("_label_position") instance=ExtResource("3_ep3gb")]
+_hit_points = 100
+_weapon_type = 1
+_label_position = NodePath("../Marker2D")
+_can_lose_hit_points = false
+
+[node name="CollisionShape2D" parent="Hittable/Area2D" index="0"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_q4mvn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_k35ga")
+}
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, -21)
+
+[editable path="Hittable"]

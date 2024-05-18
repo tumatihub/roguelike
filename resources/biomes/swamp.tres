@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Biome" load_steps=7 format=3 uid="uid://c3dwrklnoh167"]
+[gd_resource type="Resource" script_class="Biome" load_steps=11 format=3 uid="uid://c3dwrklnoh167"]
 
 [ext_resource type="Resource" uid="uid://csamnk4kdxri6" path="res://resources/env_objects/brown_mushroom.tres" id="1_2ydxi"]
 [ext_resource type="Script" path="res://scripts/biome.gd" id="1_ikr8g"]
@@ -7,15 +7,31 @@
 [sub_resource type="Resource" id="Resource_t8j2r"]
 script = ExtResource("2_uhib0")
 object_name = "Yellow Mushroom"
-probability = 0.5
+probability = 1.0
 tile_source = 6
 atlas_coords = Vector2i(0, 0)
 alternative_tile = 16
 
+[sub_resource type="Resource" id="Resource_aoro3"]
+script = ExtResource("2_uhib0")
+object_name = "Medium Rock"
+probability = 1.0
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 8
+
+[sub_resource type="Resource" id="Resource_8wlcl"]
+script = ExtResource("2_uhib0")
+object_name = "Red Mushroom"
+probability = 5.0
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 12
+
 [sub_resource type="Resource" id="Resource_pvrsg"]
 script = ExtResource("2_uhib0")
 object_name = "Red Mushroom Tree"
-probability = 1.0
+probability = 3.0
 tile_source = 6
 atlas_coords = Vector2i(0, 0)
 alternative_tile = 18
@@ -27,6 +43,22 @@ probability = 1.0
 tile_source = 6
 atlas_coords = Vector2i(0, 0)
 alternative_tile = 17
+
+[sub_resource type="Resource" id="Resource_y01vf"]
+script = ExtResource("2_uhib0")
+object_name = "Medium Bush"
+probability = 2.0
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 23
+
+[sub_resource type="Resource" id="Resource_okcgl"]
+script = ExtResource("2_uhib0")
+object_name = "Small Bush"
+probability = 4.0
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 15
 
 [resource]
 script = ExtResource("1_ikr8g")
@@ -41,4 +73,4 @@ terrain = 4
 terrain_set = 1
 layer = 0
 exclude = false
-env_objects = Array[ExtResource("2_uhib0")]([ExtResource("1_2ydxi"), SubResource("Resource_t8j2r"), SubResource("Resource_pvrsg"), SubResource("Resource_ibycp")])
+env_objects = Array[ExtResource("2_uhib0")]([SubResource("Resource_t8j2r"), SubResource("Resource_aoro3"), SubResource("Resource_8wlcl"), ExtResource("1_2ydxi"), SubResource("Resource_pvrsg"), SubResource("Resource_ibycp"), SubResource("Resource_y01vf"), SubResource("Resource_okcgl")])

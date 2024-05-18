@@ -13,3 +13,5 @@ texture = SubResource("AtlasTexture_jsxfr")
 item_name = "Wood"
 description = ""
 stackable = true
+type = 0
+heal_amount = 0

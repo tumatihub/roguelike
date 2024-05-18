@@ -1,8 +1,41 @@
-[gd_resource type="Resource" script_class="Biome" load_steps=4 format=3 uid="uid://boxivhgc1jwmv"]
+[gd_resource type="Resource" script_class="Biome" load_steps=9 format=3 uid="uid://boxivhgc1jwmv"]
 
 [ext_resource type="Script" path="res://scripts/biome.gd" id="1_0hu6w"]
 [ext_resource type="Resource" uid="uid://csamnk4kdxri6" path="res://resources/env_objects/brown_mushroom.tres" id="1_twpfx"]
 [ext_resource type="Resource" uid="uid://cde8rdhy580et" path="res://resources/taiga_env_objects/taiga_green_tree.tres" id="2_4il10"]
+[ext_resource type="Script" path="res://scripts/env_object.gd" id="3_mk6ak"]
+
+[sub_resource type="Resource" id="Resource_64tb6"]
+script = ExtResource("3_mk6ak")
+object_name = "Iron Ore"
+probability = 1.0
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 9
+
+[sub_resource type="Resource" id="Resource_0ru28"]
+script = ExtResource("3_mk6ak")
+object_name = "Big Rock"
+probability = 1.0
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 14
+
+[sub_resource type="Resource" id="Resource_sxi06"]
+script = ExtResource("3_mk6ak")
+object_name = "Small Bush"
+probability = 4.0
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 15
+
+[sub_resource type="Resource" id="Resource_8fbbt"]
+script = ExtResource("3_mk6ak")
+object_name = "Small Bush"
+probability = 4.0
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 15
 
 [resource]
 script = ExtResource("1_0hu6w")
@@ -17,4 +50,4 @@ terrain = 3
 terrain_set = 1
 layer = 0
 exclude = false
-env_objects = Array[Resource("res://scripts/env_object.gd")]([ExtResource("1_twpfx"), ExtResource("2_4il10")])
+env_objects = Array[ExtResource("3_mk6ak")]([SubResource("Resource_64tb6"), SubResource("Resource_0ru28"), ExtResource("1_twpfx"), ExtResource("2_4il10"), SubResource("Resource_sxi06"), SubResource("Resource_8fbbt")])

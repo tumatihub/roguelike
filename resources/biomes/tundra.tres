@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Biome" load_steps=7 format=3 uid="uid://xvacoj2pfmab"]
+[gd_resource type="Resource" script_class="Biome" load_steps=10 format=3 uid="uid://xvacoj2pfmab"]
 
 [ext_resource type="Script" path="res://scripts/biome.gd" id="1_dwumv"]
 [ext_resource type="Resource" uid="uid://csamnk4kdxri6" path="res://resources/env_objects/brown_mushroom.tres" id="1_ot4ru"]
@@ -7,10 +7,26 @@
 [sub_resource type="Resource" id="Resource_nefph"]
 script = ExtResource("1_y1hup")
 object_name = "Diamond Ore"
-probability = 0.1
+probability = 1.0
 tile_source = 6
 atlas_coords = Vector2i(0, 0)
 alternative_tile = 11
+
+[sub_resource type="Resource" id="Resource_erlks"]
+script = ExtResource("1_y1hup")
+object_name = "Gold Ore"
+probability = 1.0
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 10
+
+[sub_resource type="Resource" id="Resource_j72wl"]
+script = ExtResource("1_y1hup")
+object_name = "Big Rock"
+probability = 1.0
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 14
 
 [sub_resource type="Resource" id="Resource_hpxop"]
 script = ExtResource("1_y1hup")
@@ -28,6 +44,14 @@ tile_source = 6
 atlas_coords = Vector2i(0, 0)
 alternative_tile = 20
 
+[sub_resource type="Resource" id="Resource_6ehj5"]
+script = ExtResource("1_y1hup")
+object_name = "Small Ice"
+probability = 5.0
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 24
+
 [resource]
 script = ExtResource("1_dwumv")
 biome_name = "Tundra"
@@ -41,4 +65,4 @@ terrain = 5
 terrain_set = 1
 layer = 0
 exclude = false
-env_objects = Array[ExtResource("1_y1hup")]([SubResource("Resource_nefph"), ExtResource("1_ot4ru"), SubResource("Resource_hpxop"), SubResource("Resource_hk14w")])
+env_objects = Array[ExtResource("1_y1hup")]([SubResource("Resource_nefph"), SubResource("Resource_erlks"), SubResource("Resource_j72wl"), ExtResource("1_ot4ru"), SubResource("Resource_hpxop"), SubResource("Resource_hk14w"), SubResource("Resource_6ehj5")])

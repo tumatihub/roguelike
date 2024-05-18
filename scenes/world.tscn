@@ -22,20 +22,20 @@ noise_texture = ExtResource("2_bosx5")
 altitude_noise_texture = ExtResource("2_bosx5")
 moisture_noise_texture = ExtResource("3_kjxlv")
 temperature_noise_texture = ExtResource("4_qscxx")
-width = 512
-height = 512
+width = 256
+height = 256
 tile_map = NodePath("TileMap")
 _desert = ExtResource("5_urm5w")
 _forest = ExtResource("6_d8nr3")
 _taiga = ExtResource("7_7an8q")
 _swamp = ExtResource("8_wl1tk")
 _tundra = ExtResource("9_jpojk")
+_seed = 100
 
 [node name="TileMap" parent="." instance=ExtResource("10_g0p4x")]
 
 [node name="Player" parent="." node_paths=PackedStringArray("_camera_2d") instance=ExtResource("28_o64jl")]
 position = Vector2(133, 46)
-_speed = 70.0
 _camera_2d = NodePath("../Camera2D")
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("12_4w8b5")]

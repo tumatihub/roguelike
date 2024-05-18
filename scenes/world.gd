@@ -18,6 +18,8 @@ signal terrain_created
 @export var _swamp: Biome
 @export var _tundra: Biome
 
+@export var _seed: int
+
 enum WorldLayer {
 	TERRAIN,
 	ENV,
@@ -67,7 +69,10 @@ func _input(event: InputEvent) -> void:
 		
 func create_terrain() -> void:
 	_place_water_outside()
-	seed(altitude_noise_texture.noise.get_seed())
+	seed(_seed)
+	altitude_noise_texture.noise.set_seed(randi())
+	moisture_noise_texture.noise.set_seed(randi())
+	temperature_noise_texture.noise.set_seed(randi())
 	altitude_range = _get_noise_range(altitude_noise_texture)
 	moisture_range = _get_noise_range(moisture_noise_texture)
 	temperature_range = _get_noise_range(temperature_noise_texture)

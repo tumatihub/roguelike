@@ -11,6 +11,8 @@ const MAX_SLOT = 20
 		else:
 			quantity = value
 
+var weapon_instance: Weapon
+
 func try_merge(slot_data: SlotData) -> bool:
 	if not item_data.stackable:
 		return false

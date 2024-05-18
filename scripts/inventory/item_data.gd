@@ -14,3 +14,4 @@ enum Type {
 @export var type := Type.COMMON
 
 @export var heal_amount := 0
+@export var weapon_scene: PackedScene

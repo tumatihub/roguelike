@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://b4jkwbuil6hoa"]
+
+[ext_resource type="Script" path="res://scripts/inventory/item_data.gd" id="1_h4lfy"]
+[ext_resource type="Texture2D" uid="uid://cx2jqmij2oway" path="res://sprites/weapons/pickaxe_ [stone].png" id="2_josli"]
+[ext_resource type="PackedScene" uid="uid://chel0amokviro" path="res://scenes/weapons/stone_pickaxe.tscn" id="3_vxl85"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsxfr"]
+atlas = ExtResource("2_josli")
+region = Rect2(8, 2, 16, 16)
+
+[resource]
+script = ExtResource("1_h4lfy")
+texture = SubResource("AtlasTexture_jsxfr")
+item_name = "Stone Pickaxe"
+description = ""
+stackable = false
+type = 2
+heal_amount = 0
+weapon_scene = ExtResource("3_vxl85")

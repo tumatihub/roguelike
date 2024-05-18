@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=8 format=3 uid="uid://bbgui2yci083l"]
+
+[ext_resource type="Resource" uid="uid://cvwl8ruhujqkc" path="res://resources/items/weapons/gold_axe.tres" id="1_8vyon"]
+[ext_resource type="Resource" uid="uid://c171nrurwf2vv" path="res://resources/items/wood.tres" id="2_rh84o"]
+[ext_resource type="Script" path="res://scripts/recipe_slot_data.gd" id="3_o4a6k"]
+[ext_resource type="Resource" uid="uid://di8tx7vpyb837" path="res://resources/items/gold.tres" id="4_mnc5b"]
+[ext_resource type="Script" path="res://scripts/recipe_data.gd" id="5_j3yoa"]
+
+[sub_resource type="Resource" id="Resource_tttar"]
+script = ExtResource("3_o4a6k")
+item_data = ExtResource("2_rh84o")
+quantity = 50
+
+[sub_resource type="Resource" id="Resource_2vr3k"]
+script = ExtResource("3_o4a6k")
+item_data = ExtResource("4_mnc5b")
+quantity = 10
+
+[resource]
+script = ExtResource("5_j3yoa")
+required_items = Array[ExtResource("3_o4a6k")]([SubResource("Resource_tttar"), SubResource("Resource_2vr3k")])
+crafted_item = ExtResource("1_8vyon")

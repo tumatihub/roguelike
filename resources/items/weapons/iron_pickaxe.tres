@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://copeqctnp5hi1"]
+
+[ext_resource type="Script" path="res://scripts/inventory/item_data.gd" id="1_gqcdm"]
+[ext_resource type="Texture2D" uid="uid://cw7cygboogmvv" path="res://sprites/weapons/pickaxe_ [iron].png" id="2_cbxk8"]
+[ext_resource type="PackedScene" uid="uid://cykg3dus3l1hr" path="res://scenes/weapons/iron_pickaxe.tscn" id="3_guhr6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsxfr"]
+atlas = ExtResource("2_cbxk8")
+region = Rect2(8, 2, 16, 16)
+
+[resource]
+script = ExtResource("1_gqcdm")
+texture = SubResource("AtlasTexture_jsxfr")
+item_name = "Iron Pickaxe"
+description = ""
+stackable = false
+type = 2
+heal_amount = 0
+weapon_scene = ExtResource("3_guhr6")

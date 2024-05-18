@@ -106,7 +106,7 @@ func create_terrain() -> void:
 	tile_map.set_cells_terrain_connect(_taiga.layer, _taiga_cells, _taiga.terrain_set, _taiga.terrain, false)
 	tile_map.set_cells_terrain_connect(_swamp.layer, _swamp_cells, _swamp.terrain_set, _swamp.terrain, false)
 	tile_map.set_cells_terrain_connect(_tundra.layer, _tundra_cells, _tundra.terrain_set, _tundra.terrain, false)
-	print("Terrain created in %d seconds" % [(Time.get_ticks_msec() - time)/1000])
+	print("Terrain created in %d seconds\n" % [(Time.get_ticks_msec() - time)/1000])
 	terrain_created.emit()
 
 func _update_tiles(cells: Array[Vector2i], biome: Biome) -> void:
@@ -184,9 +184,10 @@ func _place_env_objects(biome: Biome, biome_cells: Array[Vector2i]) -> void:
 	_print_biome_stats(place_stats, biome)
 
 func _print_biome_stats(place_stats: Array[Dictionary], biome: Biome) -> void:
-	print("Stats for: %s" % [biome.biome_name])
+	print(" ----> Stats for: %s" % [biome.biome_name])
 	for i in place_stats:
 		print("%s -> %d" % [i.get("name"), i.get("qty")])
+	print("\n")
 
 func _get_noise_range(noise_texture: NoiseTexture2D) -> Array[float]:
 	var max_noise := -INF

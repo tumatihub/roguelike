@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=6 format=3 uid="uid://fwefnrxq0oey"]
+
+[ext_resource type="Script" path="res://scripts/recipe_data.gd" id="1_ck8aa"]
+[ext_resource type="Resource" uid="uid://bomi3hxy0cl4b" path="res://resources/items/weapons/wood_axe.tres" id="1_harkl"]
+[ext_resource type="Resource" uid="uid://c171nrurwf2vv" path="res://resources/items/wood.tres" id="2_6kpcb"]
+[ext_resource type="Script" path="res://scripts/recipe_slot_data.gd" id="3_f747u"]
+
+[sub_resource type="Resource" id="Resource_tttar"]
+script = ExtResource("3_f747u")
+item_data = ExtResource("2_6kpcb")
+quantity = 10
+
+[resource]
+script = ExtResource("1_ck8aa")
+required_items = Array[ExtResource("3_f747u")]([SubResource("Resource_tttar")])
+crafted_item = ExtResource("1_harkl")

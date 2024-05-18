@@ -1,0 +1,80 @@
+[gd_scene load_steps=9 format=3 uid="uid://8iebg0swbgx5"]
+
+[ext_resource type="StyleBox" uid="uid://bbi022ayr3n6m" path="res://scenes/UI/panel_theme.tres" id="1_33bop"]
+[ext_resource type="Script" path="res://scenes/UI/recipe_row.gd" id="1_50lc0"]
+[ext_resource type="Texture2D" uid="uid://evxvsgyquu4s" path="res://sprites/weapons/axe_ [wood].png" id="2_8poeo"]
+[ext_resource type="PackedScene" uid="uid://bcafyb5wf18p6" path="res://scenes/UI/recipe_slot.tscn" id="3_xkmr2"]
+[ext_resource type="FontFile" uid="uid://7oxj3q56bud8" path="res://fonts/bitbybit_ [Font].ttf" id="4_hqld7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw3ns"]
+atlas = ExtResource("2_8poeo")
+region = Rect2(10, 4, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8yn4m"]
+line_spacing = 1.0
+font = ExtResource("4_hqld7")
+font_size = 7
+
+[sub_resource type="LabelSettings" id="LabelSettings_jtvgc"]
+font = ExtResource("4_hqld7")
+font_size = 5
+
+[node name="RecipeRow" type="HBoxContainer" node_paths=PackedStringArray("_crafted_item_texture", "_h_flow", "_button", "_fail_text_label", "_name_label")]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 26.0
+grow_horizontal = 2
+focus_mode = 2
+script = ExtResource("1_50lc0")
+_crafted_item_texture = NodePath("PanelContainer/TextureRect")
+_h_flow = NodePath("HFlowContainer")
+_recipe_slot_scene = ExtResource("3_xkmr2")
+_button = NodePath("VBoxContainer/Craft")
+_fail_text_label = NodePath("VBoxContainer/FailText")
+_name_label = NodePath("Name")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("1_33bop")
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_bw3ns")
+
+[node name="Name" type="Label" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "Wood Axe"
+label_settings = SubResource("LabelSettings_8yn4m")
+autowrap_mode = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Craft" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_hqld7")
+theme_override_font_sizes/font_size = 5
+action_mode = 0
+text = "Craft"
+
+[node name="FailText" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+label_settings = SubResource("LabelSettings_jtvgc")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_entered" from="VBoxContainer/Craft" to="." method="_on_craft_focus_entered"]
+[connection signal="pressed" from="VBoxContainer/Craft" to="." method="_on_craft_pressed"]

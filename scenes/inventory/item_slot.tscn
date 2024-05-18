@@ -12,6 +12,7 @@ border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
 border_color = Color(1, 1, 1, 1)
+anti_aliasing = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hef1a"]
 atlas = ExtResource("1_qh8l0")
@@ -19,11 +20,11 @@ region = Rect2(144, 16, 16, 16)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2685s"]
 font = ExtResource("2_y3npb")
-font_size = 4
+font_size = 5
 
 [node name="ItemSlot" type="PanelContainer" node_paths=PackedStringArray("_texture", "_quantity_label")]
 self_modulate = Color(0.65098, 0.490196, 0.356863, 1)
-custom_minimum_size = Vector2(16, 16)
+custom_minimum_size = Vector2(20, 20)
 offset_right = 16.0
 offset_bottom = 16.0
 focus_mode = 2

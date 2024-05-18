@@ -1,0 +1,83 @@
+[gd_scene load_steps=20 format=3 uid="uid://hb40mf6bsfs3"]
+
+[ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="1_mjm6e"]
+[ext_resource type="Script" path="res://scripts/terrain_sprite_changer.gd" id="2_qfict"]
+[ext_resource type="Texture2D" uid="uid://ctqg4jje10ond" path="res://sprites/desert_/desert_ [resources].png" id="3_tm0vo"]
+[ext_resource type="Texture2D" uid="uid://b6i5ek28pg3h0" path="res://sprites/taiga_/taiga_ [resources].png" id="4_kq73m"]
+[ext_resource type="Texture2D" uid="uid://cj28tfaabp3w8" path="res://sprites/swamp_/swamp_ [resources].png" id="5_sifji"]
+[ext_resource type="Texture2D" uid="uid://bu4b6ljh83jcq" path="res://sprites/tundra_/tundra_ [resources].png" id="6_pi0xi"]
+[ext_resource type="PackedScene" uid="uid://bktaeedyrbgg6" path="res://scenes/interactable.tscn" id="7_jj0h4"]
+[ext_resource type="Script" path="res://scripts/item_giver.gd" id="8_0ipxb"]
+[ext_resource type="Resource" uid="uid://c171nrurwf2vv" path="res://resources/items/wood.tres" id="9_d4syh"]
+[ext_resource type="Script" path="res://scripts/inventory/slot_data.gd" id="10_wldku"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnlmk"]
+atlas = ExtResource("1_mjm6e")
+region = Rect2(96, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2x4m"]
+atlas = ExtResource("1_mjm6e")
+region = Rect2(96, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru5mc"]
+atlas = ExtResource("3_tm0vo")
+region = Rect2(96, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0js3l"]
+atlas = ExtResource("4_kq73m")
+region = Rect2(96, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1nk1"]
+atlas = ExtResource("5_sifji")
+region = Rect2(96, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy268"]
+atlas = ExtResource("6_pi0xi")
+region = Rect2(96, 128, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yscdj"]
+
+[sub_resource type="Resource" id="Resource_vjm12"]
+script = ExtResource("10_wldku")
+item_data = ExtResource("9_d4syh")
+quantity = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ghnv"]
+size = Vector2(12, 8)
+
+[node name="Wood" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+y_sort_enabled = true
+texture = SubResource("AtlasTexture_lnlmk")
+
+[node name="TerrainSpriteChanger" type="Node" parent="." node_paths=PackedStringArray("_sprite")]
+script = ExtResource("2_qfict")
+_sprite = NodePath("../Sprite2D")
+_forest_texture = SubResource("AtlasTexture_h2x4m")
+_desert_texture = SubResource("AtlasTexture_ru5mc")
+_taiga_texture = SubResource("AtlasTexture_0js3l")
+_swamp_texture = SubResource("AtlasTexture_w1nk1")
+_tundra_texture = SubResource("AtlasTexture_sy268")
+
+[node name="Interactable" parent="." instance=ExtResource("7_jj0h4")]
+_interaction_text = "GET"
+
+[node name="CollisionShape2D" parent="Interactable/InteractableArea" index="0"]
+shape = SubResource("CircleShape2D_yscdj")
+
+[node name="ItemGiver" type="Node" parent="." node_paths=PackedStringArray("_interactable")]
+script = ExtResource("8_0ipxb")
+_interactable = NodePath("../Interactable")
+_slot_data = SubResource("Resource_vjm12")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_1ghnv")
+
+[connection signal="item_gave" from="ItemGiver" to="." method="queue_free"]
+
+[editable path="Interactable"]

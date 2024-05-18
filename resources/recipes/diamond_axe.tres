@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=8 format=3 uid="uid://bb66jpbwy2cra"]
+
+[ext_resource type="Resource" uid="uid://btu2fy7qlldkt" path="res://resources/items/weapons/diamond_axe.tres" id="1_ojda4"]
+[ext_resource type="Resource" uid="uid://c171nrurwf2vv" path="res://resources/items/wood.tres" id="2_dyh67"]
+[ext_resource type="Script" path="res://scripts/recipe_slot_data.gd" id="3_2n4qb"]
+[ext_resource type="Resource" uid="uid://di2miqcg72ihx" path="res://resources/items/diamond.tres" id="4_cmt0o"]
+[ext_resource type="Script" path="res://scripts/recipe_data.gd" id="5_eeosw"]
+
+[sub_resource type="Resource" id="Resource_tttar"]
+script = ExtResource("3_2n4qb")
+item_data = ExtResource("2_dyh67")
+quantity = 50
+
+[sub_resource type="Resource" id="Resource_2vr3k"]
+script = ExtResource("3_2n4qb")
+item_data = ExtResource("4_cmt0o")
+quantity = 10
+
+[resource]
+script = ExtResource("5_eeosw")
+required_items = Array[ExtResource("3_2n4qb")]([SubResource("Resource_tttar"), SubResource("Resource_2vr3k")])
+crafted_item = ExtResource("1_ojda4")

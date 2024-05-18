@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://ckij7buxriy4i"]
+
+[ext_resource type="Script" path="res://scripts/inventory/item_data.gd" id="1_g3n6s"]
+[ext_resource type="Texture2D" uid="uid://c7krwirpr3grm" path="res://sprites/weapons/axe_ [iron].png" id="2_i75gl"]
+[ext_resource type="PackedScene" uid="uid://bya0kq8hcxojo" path="res://scenes/weapons/iron_axe.tscn" id="3_llnf5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsxfr"]
+atlas = ExtResource("2_i75gl")
+region = Rect2(10, 4, 16, 16)
+
+[resource]
+script = ExtResource("1_g3n6s")
+texture = SubResource("AtlasTexture_jsxfr")
+item_name = "Iron Axe"
+description = ""
+stackable = false
+type = 2
+heal_amount = 0
+weapon_scene = ExtResource("3_llnf5")

@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=66 format=3 uid="uid://b55ny3kbquwm2"]
+[gd_resource type="TileSet" load_steps=67 format=3 uid="uid://b55ny3kbquwm2"]
 
 [ext_resource type="Texture2D" uid="uid://ce7qoaywljqa6" path="res://sprites/forest_/forest_.png" id="1_ai0cc"]
 [ext_resource type="Texture2D" uid="uid://df6ierd404vud" path="res://sprites/desert_/desert_.png" id="2_bh14x"]
@@ -44,6 +44,7 @@
 [ext_resource type="PackedScene" uid="uid://3vrq2lkexowe" path="res://scenes/env_objects/big_cactus.tscn" id="31_htv5p"]
 [ext_resource type="PackedScene" uid="uid://cuj1ehcqmueu2" path="res://scenes/env_objects/medium_bush.tscn" id="33_qwgxt"]
 [ext_resource type="PackedScene" uid="uid://d168473tnceab" path="res://scenes/env_objects/small_ice.tscn" id="34_ecslc"]
+[ext_resource type="PackedScene" uid="uid://hb40mf6bsfs3" path="res://scenes/env_objects/wood.tscn" id="35_q83rt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dqrqp"]
 resource_name = "Forest"
@@ -5765,6 +5766,7 @@ scenes/21/scene = ExtResource("30_fwts6")
 scenes/22/scene = ExtResource("31_htv5p")
 scenes/23/scene = ExtResource("33_qwgxt")
 scenes/24/scene = ExtResource("34_ecslc")
+scenes/25/scene = ExtResource("35_q83rt")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v7qrb"]
 texture = ExtResource("20_4teep")

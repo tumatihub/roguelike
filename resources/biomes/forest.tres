@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Biome" load_steps=13 format=3 uid="uid://2sp8xeiv5ocf"]
+[gd_resource type="Resource" script_class="Biome" load_steps=14 format=3 uid="uid://2sp8xeiv5ocf"]
 
 [ext_resource type="Script" path="res://scripts/biome.gd" id="1_1qq64"]
 [ext_resource type="Resource" uid="uid://du0u65wef3po5" path="res://resources/forest_env_objects/forest_small_chest.tres" id="1_2ryv8"]
@@ -41,6 +41,14 @@ tile_source = 6
 atlas_coords = Vector2i(0, 0)
 alternative_tile = 23
 
+[sub_resource type="Resource" id="Resource_enuqn"]
+script = ExtResource("8_psn31")
+object_name = "Wood"
+probability = 1.0
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 25
+
 [resource]
 script = ExtResource("1_1qq64")
 biome_name = "Forest"
@@ -54,4 +62,4 @@ terrain = 1
 terrain_set = 1
 layer = 0
 exclude = false
-env_objects = Array[ExtResource("8_psn31")]([ExtResource("1_2ryv8"), SubResource("Resource_sb2wb"), ExtResource("1_lmc3b"), ExtResource("2_cxm28"), ExtResource("3_lf3pu"), ExtResource("4_g00h2"), SubResource("Resource_sqqxi"), SubResource("Resource_ok4l5"), ExtResource("1_fije7"), SubResource("Resource_g54km")])
+env_objects = Array[ExtResource("8_psn31")]([ExtResource("1_2ryv8"), SubResource("Resource_sb2wb"), ExtResource("1_lmc3b"), ExtResource("2_cxm28"), ExtResource("3_lf3pu"), ExtResource("4_g00h2"), SubResource("Resource_sqqxi"), SubResource("Resource_ok4l5"), ExtResource("1_fije7"), SubResource("Resource_g54km"), SubResource("Resource_enuqn")])

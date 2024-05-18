@@ -20,10 +20,10 @@ func _physics_process(delta: float) -> void:
 	global_position = next_pos
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("scroll up"):
+	if Input.is_action_just_pressed("zoom in"):
 		_current_zoom = min(1, zoom.x + _zoom_steps)
 		zoom = Vector2(_current_zoom, _current_zoom)
 	
-	if Input.is_action_just_pressed("scroll down"):
+	if Input.is_action_just_pressed("zoom out"):
 		_current_zoom = max(0.1, zoom.x - _zoom_steps)
 		zoom = Vector2(_current_zoom, _current_zoom)

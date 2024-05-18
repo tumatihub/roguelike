@@ -131,7 +131,7 @@ shape = SubResource("RectangleShape2D_i044w")
 
 [node name="Hittable" parent="." node_paths=PackedStringArray("_label_position") instance=ExtResource("8_twk4l")]
 _hit_points = 100
-_weapon_type = 1
+_weapon_type = 2
 _label_position = NodePath("../Marker2D")
 
 [node name="CollisionShape2D" parent="Hittable/Area2D" index="0"]

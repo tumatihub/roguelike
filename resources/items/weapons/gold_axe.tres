@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cvwl8ruhujqkc"]
+
+[ext_resource type="Script" path="res://scripts/inventory/item_data.gd" id="1_b8b4q"]
+[ext_resource type="Texture2D" uid="uid://bk41yv32nlpsq" path="res://sprites/weapons/axe_ [gold].png" id="2_xhecj"]
+[ext_resource type="PackedScene" uid="uid://cta7k24kekflu" path="res://scenes/weapons/gold_axe.tscn" id="3_edsde"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsxfr"]
+atlas = ExtResource("2_xhecj")
+region = Rect2(10, 4, 16, 16)
+
+[resource]
+script = ExtResource("1_b8b4q")
+texture = SubResource("AtlasTexture_jsxfr")
+item_name = "Gold Axe"
+description = ""
+stackable = false
+type = 2
+heal_amount = 0
+weapon_scene = ExtResource("3_edsde")

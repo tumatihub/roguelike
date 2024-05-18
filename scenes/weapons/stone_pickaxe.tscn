@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgqhcytswb7m8"]
+[gd_scene load_steps=8 format=3 uid="uid://chel0amokviro"]
 
-[ext_resource type="Texture2D" uid="uid://evxvsgyquu4s" path="res://sprites/weapons/axe_ [wood].png" id="1_anjw3"]
-[ext_resource type="Script" path="res://scripts/weapon.gd" id="1_hr0nh"]
+[ext_resource type="Script" path="res://scripts/weapon.gd" id="1_ydw1i"]
+[ext_resource type="Texture2D" uid="uid://cx2jqmij2oway" path="res://sprites/weapons/pickaxe_ [stone].png" id="2_aak04"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlico"]
-atlas = ExtResource("1_anjw3")
+atlas = ExtResource("2_aak04")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5vme4"]
@@ -144,12 +144,13 @@ _data = {
 "attack": SubResource("Animation_6cykc")
 }
 
-[node name="Axe" type="Node2D" node_paths=PackedStringArray("_animation_player")]
-script = ExtResource("1_hr0nh")
+[node name="Stone_Pickaxe" type="Node2D" node_paths=PackedStringArray("_animation_player")]
+script = ExtResource("1_ydw1i")
 _animation_player = NodePath("AnimationPlayer")
 _damage = 10
-_type = 1
+_type = 2
 _delay = 0.7
+_max_durability = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

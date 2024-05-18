@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="RecipeData" load_steps=8 format=3 uid="uid://beup3pob2bbix"]
+
+[ext_resource type="Resource" uid="uid://copeqctnp5hi1" path="res://resources/items/weapons/iron_pickaxe.tres" id="1_birau"]
+[ext_resource type="Resource" uid="uid://c171nrurwf2vv" path="res://resources/items/wood.tres" id="2_2c1l8"]
+[ext_resource type="Script" path="res://scripts/recipe_slot_data.gd" id="3_px4ko"]
+[ext_resource type="Resource" uid="uid://duxyvk2x2l3da" path="res://resources/items/iron.tres" id="4_hvddb"]
+[ext_resource type="Script" path="res://scripts/recipe_data.gd" id="5_w6v8j"]
+
+[sub_resource type="Resource" id="Resource_tttar"]
+script = ExtResource("3_px4ko")
+item_data = ExtResource("2_2c1l8")
+quantity = 10
+
+[sub_resource type="Resource" id="Resource_boclh"]
+script = ExtResource("3_px4ko")
+item_data = ExtResource("4_hvddb")
+quantity = 10
+
+[resource]
+script = ExtResource("5_w6v8j")
+required_items = Array[ExtResource("3_px4ko")]([SubResource("Resource_tttar"), SubResource("Resource_boclh")])
+crafted_item = ExtResource("1_birau")

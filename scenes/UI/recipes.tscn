@@ -1,0 +1,41 @@
+[gd_scene load_steps=13 format=3 uid="uid://bre6l5nf5i731"]
+
+[ext_resource type="StyleBox" uid="uid://bbi022ayr3n6m" path="res://scenes/UI/panel_theme.tres" id="1_tiw60"]
+[ext_resource type="Script" path="res://scenes/UI/recipes.gd" id="2_45wwb"]
+[ext_resource type="Resource" uid="uid://fwefnrxq0oey" path="res://resources/recipes/wood_axe.tres" id="3_aurve"]
+[ext_resource type="PackedScene" uid="uid://8iebg0swbgx5" path="res://scenes/UI/recipe_row.tscn" id="3_p3oqt"]
+[ext_resource type="Resource" uid="uid://drd135vsnp26q" path="res://resources/recipes/iron_axe.tres" id="4_nkjdx"]
+[ext_resource type="Resource" uid="uid://c310vcgre6jhy" path="res://resources/inventory/inventory.tres" id="4_vmfcf"]
+[ext_resource type="Resource" uid="uid://48lulofquqn1" path="res://resources/recipes/stone_pickaxe.tres" id="5_p1els"]
+[ext_resource type="Resource" uid="uid://bbgui2yci083l" path="res://resources/recipes/gold_axe.tres" id="6_08ife"]
+[ext_resource type="Resource" uid="uid://bb66jpbwy2cra" path="res://resources/recipes/diamond_axe.tres" id="7_vyhgk"]
+[ext_resource type="Resource" uid="uid://bq4xbxkcrie05" path="res://resources/recipes/gold_pickaxe.tres" id="8_gmycx"]
+[ext_resource type="Resource" uid="uid://beup3pob2bbix" path="res://resources/recipes/iron_pickaxe.tres" id="8_yhrwb"]
+[ext_resource type="Resource" uid="uid://ketih0aui0ra" path="res://resources/recipes/diamond_pickaxe.tres" id="10_armp5"]
+
+[node name="Recipes" type="PanelContainer" node_paths=PackedStringArray("_vbox")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("1_tiw60")
+script = ExtResource("2_45wwb")
+_recipes = Array[Object]([ExtResource("3_aurve"), ExtResource("5_p1els"), ExtResource("4_nkjdx"), ExtResource("8_yhrwb"), ExtResource("6_08ife"), ExtResource("8_gmycx"), ExtResource("7_vyhgk"), ExtResource("10_armp5")])
+_vbox = NodePath("MarginContainer/ScrollContainer/VBoxContainer")
+_recipe_row_scene = ExtResource("3_p3oqt")
+_inventory_data = ExtResource("4_vmfcf")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

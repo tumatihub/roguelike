@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://m3vq4rmmt6p5"]
+[gd_scene load_steps=15 format=3 uid="uid://m3vq4rmmt6p5"]
 
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_pl8p8"]
 [ext_resource type="Texture2D" uid="uid://dhs8xe7s5ynl4" path="res://resources/altitude.tres" id="2_bosx5"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://cupxnsfntbxrq" path="res://scenes/tile_map.tscn" id="10_g0p4x"]
 [ext_resource type="PackedScene" uid="uid://m0fc0677exx3" path="res://scenes/camera_2d.tscn" id="12_4w8b5"]
 [ext_resource type="PackedScene" uid="uid://67j4u0e1i1hy" path="res://scenes/UI/player_menu.tscn" id="13_qnl1o"]
+[ext_resource type="PackedScene" uid="uid://c53o5v34slviy" path="res://scenes/UI/equipped_items.tscn" id="14_nxv8y"]
 [ext_resource type="PackedScene" uid="uid://btwiidhdd1air" path="res://scenes/player/player.tscn" id="28_o64jl"]
 
 [node name="World" type="Node2D" node_paths=PackedStringArray("tile_map") groups=["world"]]
@@ -34,6 +35,7 @@ _tundra = ExtResource("9_jpojk")
 
 [node name="Player" parent="." node_paths=PackedStringArray("_camera_2d") instance=ExtResource("28_o64jl")]
 position = Vector2(133, 46)
+_speed = 70.0
 _camera_2d = NodePath("../Camera2D")
 
 [node name="Camera2D" parent="." node_paths=PackedStringArray("_target") instance=ExtResource("12_4w8b5")]
@@ -42,4 +44,15 @@ _target = NodePath("../Player")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlayerMenu" parent="CanvasLayer" instance=ExtResource("13_qnl1o")]
-offset_right = 0.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -60.0
+offset_right = 95.0
+offset_bottom = 60.0
+grow_horizontal = 2
+
+[node name="EquippedItems" parent="CanvasLayer" instance=ExtResource("14_nxv8y")]

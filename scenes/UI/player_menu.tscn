@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://67j4u0e1i1hy"]
+[gd_scene load_steps=6 format=3 uid="uid://67j4u0e1i1hy"]
 
 [ext_resource type="FontFile" uid="uid://7oxj3q56bud8" path="res://fonts/bitbybit_ [Font].ttf" id="1_qa5mx"]
 [ext_resource type="Script" path="res://scenes/UI/player_menu.gd" id="2_2klk2"]
+[ext_resource type="StyleBox" uid="uid://bbi022ayr3n6m" path="res://scenes/UI/panel_theme.tres" id="2_4oo3p"]
 [ext_resource type="PackedScene" uid="uid://crnm7akjdiu0u" path="res://scenes/inventory/inventory.tscn" id="2_xgdu3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jmtsn"]
+bg_color = Color(0.741176, 0.556863, 0.407843, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.65, 0.489125, 0.3575, 1)
+expand_margin_left = 3.0
+expand_margin_right = 3.0
 
 [node name="PlayerMenu" type="TabContainer" node_paths=PackedStringArray("_inventory") groups=["player_menu"]]
 visible = false
@@ -12,6 +23,8 @@ offset_right = 169.0
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("1_qa5mx")
 theme_override_font_sizes/font_size = 5
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_jmtsn")
+theme_override_styles/panel = ExtResource("2_4oo3p")
 tab_focus_mode = 0
 script = ExtResource("2_2klk2")
 _inventory = NodePath("INVENTORY")

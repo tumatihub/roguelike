@@ -13,3 +13,5 @@ texture = SubResource("AtlasTexture_jsxfr")
 item_name = "Yellow Mushroom"
 description = ""
 stackable = true
+type = 1
+heal_amount = 100

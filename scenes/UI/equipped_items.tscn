@@ -1,0 +1,88 @@
+[gd_scene load_steps=7 format=3 uid="uid://c53o5v34slviy"]
+
+[ext_resource type="Script" path="res://scenes/UI/equipped_items.gd" id="1_ftm0p"]
+[ext_resource type="FontFile" uid="uid://7oxj3q56bud8" path="res://fonts/bitbybit_ [Font].ttf" id="2_052y3"]
+[ext_resource type="Resource" uid="uid://c310vcgre6jhy" path="res://resources/inventory/inventory.tres" id="2_x4ff5"]
+[ext_resource type="StyleBox" uid="uid://bbi022ayr3n6m" path="res://scenes/UI/panel_theme.tres" id="3_ycakc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_igb3b"]
+font = ExtResource("2_052y3")
+font_size = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_8cnq4"]
+font = ExtResource("2_052y3")
+font_size = 4
+
+[node name="EquippedItems" type="Control" node_paths=PackedStringArray("_weapon_texture", "_weapon_durability_label", "_item_texture", "_item_quantity_label")]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = -5.0
+grow_vertical = 0
+script = ExtResource("1_ftm0p")
+_weapon_texture = NodePath("HBoxContainer/Weapon/Texture")
+_weapon_durability_label = NodePath("HBoxContainer/Weapon/Texture/Durability")
+_item_texture = NodePath("HBoxContainer/Item/Texture")
+_item_quantity_label = NodePath("HBoxContainer/Item/Texture/Quantity")
+_inventory_data = ExtResource("2_x4ff5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+offset_right = 36.0
+grow_vertical = 0
+
+[node name="Weapon" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_ycakc")
+
+[node name="Texture" type="TextureRect" parent="HBoxContainer/Weapon"]
+layout_mode = 2
+
+[node name="Durability" type="Label" parent="HBoxContainer/Weapon/Texture"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -6.0
+offset_right = 4.00001
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_igb3b")
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Item" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_ycakc")
+
+[node name="Texture" type="TextureRect" parent="HBoxContainer/Item"]
+layout_mode = 2
+
+[node name="Quantity" type="Label" parent="HBoxContainer/Item/Texture"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -6.0
+offset_right = 3.0
+grow_horizontal = 0
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_8cnq4")
+horizontal_alignment = 2
+vertical_alignment = 2

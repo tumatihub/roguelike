@@ -6,6 +6,7 @@ extends CharacterBody2D
 @export var _weapon: Weapon
 @export var _camera_2d: Camera2D
 @export var _inventory_data: InventoryData
+@export var _hittable: Hittable
 
 var _x: float
 var _y: float
@@ -45,6 +46,10 @@ func _input(event: InputEvent) -> void:
 		
 	if Input.is_action_pressed("attack"):
 		_weapon.attack()
+
+	if Input.is_action_just_pressed("use_item") and _inventory_data.current_equipped_item:
+		_hittable.heal(_inventory_data.current_equipped_item.heal_amount)
+		_inventory_data.remove_item_quantity(_inventory_data.current_equipped_item, 1)
 
 func _on_toggle_player_menu_visibility(is_visible: bool) -> void:
 	_can_move = !is_visible

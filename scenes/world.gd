@@ -94,6 +94,7 @@ func create_terrain() -> void:
 				#tile_map.set_cells_terrain_connect(_tundra.layer, [coords], _tundra.terrain_set, _tundra.terrain, false)
 			else:
 				tile_map.set_cell(2, coords, 1, Vector2i(4, 7))
+	
 	var time := Time.get_ticks_msec()
 	tile_map.set_cells_terrain_connect(_desert.layer, _desert_cells, _desert.terrain_set, _desert.terrain, false)
 	tile_map.set_cells_terrain_connect(_forest.layer, _forest_cells, _forest.terrain_set, _forest.terrain, false)
@@ -102,6 +103,18 @@ func create_terrain() -> void:
 	tile_map.set_cells_terrain_connect(_tundra.layer, _tundra_cells, _tundra.terrain_set, _tundra.terrain, false)
 	print("Terrain created in %d seconds" % [(Time.get_ticks_msec() - time)/1000])
 	terrain_created.emit()
+
+func _update_tiles(cells: Array[Vector2i], biome: Biome) -> void:
+	var begin := 1
+	var end := 100
+	var slice := cells.slice(begin, end)
+	while slice.size() > 0:
+		begin = end
+		end += 100
+		tile_map.set_cells_terrain_connect(biome.layer, slice, biome.terrain_set, biome.terrain, false)
+		slice = cells.slice(begin, end)
+		await get_tree().process_frame
+	print(biome.biome_name + " " + str(Time.get_ticks_msec()/1000))
 
 func _place_water_outside() -> void:
 	var margin := 50

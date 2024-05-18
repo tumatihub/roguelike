@@ -14,7 +14,7 @@ alternative_tile = 16
 
 [sub_resource type="Resource" id="Resource_pvrsg"]
 script = ExtResource("2_uhib0")
-object_name = ""
+object_name = "Red Mushroom Tree"
 probability = 1.0
 tile_source = 6
 atlas_coords = Vector2i(0, 0)
@@ -22,7 +22,7 @@ alternative_tile = 18
 
 [sub_resource type="Resource" id="Resource_ibycp"]
 script = ExtResource("2_uhib0")
-object_name = ""
+object_name = "Mushroom Tree"
 probability = 1.0
 tile_source = 6
 atlas_coords = Vector2i(0, 0)

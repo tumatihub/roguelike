@@ -3,6 +3,7 @@ extends Node
 
 signal got_hit
 signal lost_all_hit_points
+signal healed
 
 @export var _hit_points: int
 @export var _weapon_type: Weapon.Type
@@ -33,3 +34,8 @@ func hit(damage: int, type: Weapon.Type) -> void:
 	if _current_hit_points == 0:
 		lost_all_hit_points.emit()
 	print("%s got hit with %d damage" % [owner.name, real_damage])
+
+func heal(amount: int) -> void:
+	_current_hit_points = min(_hit_points, _current_hit_points + amount)
+	healed.emit()
+	print("%s got healed with %d" % [owner.name, amount])

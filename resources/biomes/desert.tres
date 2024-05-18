@@ -1,11 +1,27 @@
-[gd_resource type="Resource" script_class="Biome" load_steps=6 format=3 uid="uid://bsl087xbqudvj"]
+[gd_resource type="Resource" script_class="Biome" load_steps=9 format=3 uid="uid://bsl087xbqudvj"]
 
 [ext_resource type="Script" path="res://scripts/biome.gd" id="1_p1uwh"]
 [ext_resource type="Script" path="res://scripts/env_object.gd" id="1_yelea"]
 
+[sub_resource type="Resource" id="Resource_c8ii7"]
+script = ExtResource("1_yelea")
+object_name = "Gold Ore"
+probability = 0.1
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 10
+
+[sub_resource type="Resource" id="Resource_jrinm"]
+script = ExtResource("1_yelea")
+object_name = "Iron Ore"
+probability = 0.5
+tile_source = 6
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 9
+
 [sub_resource type="Resource" id="Resource_1xwrd"]
 script = ExtResource("1_yelea")
-object_name = ""
+object_name = "Big Cactus"
 probability = 1.0
 tile_source = 6
 atlas_coords = Vector2i(0, 0)
@@ -13,7 +29,7 @@ alternative_tile = 22
 
 [sub_resource type="Resource" id="Resource_k24jl"]
 script = ExtResource("1_yelea")
-object_name = ""
+object_name = "Medium Cactus"
 probability = 1.0
 tile_source = 6
 atlas_coords = Vector2i(0, 0)
@@ -21,11 +37,19 @@ alternative_tile = 21
 
 [sub_resource type="Resource" id="Resource_02bcp"]
 script = ExtResource("1_yelea")
-object_name = ""
+object_name = "Big Rock"
 probability = 0.1
 tile_source = 6
 atlas_coords = Vector2i(0, 0)
 alternative_tile = 14
+
+[sub_resource type="Resource" id="Resource_6i7na"]
+script = ExtResource("1_yelea")
+object_name = "Bones"
+probability = 0.0
+tile_source = 8
+atlas_coords = Vector2i(6, 2)
+alternative_tile = 0
 
 [resource]
 script = ExtResource("1_p1uwh")
@@ -40,4 +64,4 @@ terrain = 0
 terrain_set = 1
 layer = 0
 exclude = false
-env_objects = Array[ExtResource("1_yelea")]([SubResource("Resource_1xwrd"), SubResource("Resource_k24jl"), SubResource("Resource_02bcp")])
+env_objects = Array[ExtResource("1_yelea")]([SubResource("Resource_c8ii7"), SubResource("Resource_jrinm"), SubResource("Resource_1xwrd"), SubResource("Resource_k24jl"), SubResource("Resource_02bcp"), SubResource("Resource_6i7na")])

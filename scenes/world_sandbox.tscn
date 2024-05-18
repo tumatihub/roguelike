@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqr5ekq4lg187"]
+[gd_scene load_steps=6 format=3 uid="uid://cqr5ekq4lg187"]
 
 [ext_resource type="PackedScene" uid="uid://cupxnsfntbxrq" path="res://scenes/tile_map.tscn" id="1_6kdq3"]
 [ext_resource type="PackedScene" uid="uid://btwiidhdd1air" path="res://scenes/player/player.tscn" id="2_a5q33"]
 [ext_resource type="PackedScene" uid="uid://m0fc0677exx3" path="res://scenes/camera_2d.tscn" id="3_8oyie"]
 [ext_resource type="PackedScene" uid="uid://67j4u0e1i1hy" path="res://scenes/UI/player_menu.tscn" id="4_hawvh"]
+[ext_resource type="PackedScene" uid="uid://c53o5v34slviy" path="res://scenes/UI/equipped_items.tscn" id="5_sn1qr"]
 
 [node name="WorldSandbox" type="Node2D"]
 y_sort_enabled = true
@@ -23,3 +24,19 @@ _target = NodePath("../Player")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlayerMenu" parent="CanvasLayer" instance=ExtResource("4_hawvh")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -84.0
+offset_top = -47.0
+offset_right = 85.0
+offset_bottom = 63.0
+grow_horizontal = 2
+
+[node name="EquippedItems" parent="CanvasLayer" instance=ExtResource("5_sn1qr")]
+offset_left = 10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = -10.0

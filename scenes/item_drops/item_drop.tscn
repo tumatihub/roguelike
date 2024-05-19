@@ -16,7 +16,7 @@ region = Rect2(112, 48, 16, 16)
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_0tki3")
 
-[node name="ItemGiver" type="Node" parent="." node_paths=PackedStringArray("_interactable")]
+[node name="ItemGiver" type="Node2D" parent="." node_paths=PackedStringArray("_interactable")]
 script = ExtResource("2_ih105")
 _interactable = NodePath("../Interactable")
 

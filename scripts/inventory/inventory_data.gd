@@ -5,6 +5,7 @@ signal updated
 signal equipped_item(item_data: ItemData)
 signal equipped_weapon(slot_data: SlotData)
 signal unequipped_weapon(slot_data: SlotData)
+signal dropped_item(slot_data: SlotData)
 
 @export var slot_datas: Array[SlotData]
 
@@ -70,6 +71,14 @@ func has_available_slot() -> bool:
 		if slot == null:
 			return true
 	return false
+
+func drop_item(slot_data: SlotData) -> void:
+	for index in slot_datas.size():
+		if slot_datas[index] == slot_data:
+			slot_datas[index] = null
+			dropped_item.emit(slot_data)
+			updated.emit()
+			return
 
 func _on_weapon_broke(slot_data: SlotData) -> void:
 	print("Broke")

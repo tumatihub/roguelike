@@ -23,7 +23,7 @@ quantity = 5
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_0tki3")
 
-[node name="ItemGiver" type="Node" parent="." node_paths=PackedStringArray("_interactable")]
+[node name="ItemGiver" type="Node2D" parent="." node_paths=PackedStringArray("_interactable")]
 script = ExtResource("2_2fobo")
 _interactable = NodePath("../Interactable")
 _slot_data = SubResource("Resource_b1xrb")

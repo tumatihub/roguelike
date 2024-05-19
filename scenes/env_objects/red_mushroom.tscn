@@ -60,7 +60,7 @@ _interaction_text = "GET"
 position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_yscdj")
 
-[node name="ItemGiver" type="Node" parent="." node_paths=PackedStringArray("_interactable")]
+[node name="ItemGiver" type="Node2D" parent="." node_paths=PackedStringArray("_interactable")]
 script = ExtResource("7_c8kuv")
 _interactable = NodePath("../Interactable")
 _slot_data = SubResource("Resource_vjm12")

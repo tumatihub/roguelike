@@ -8,6 +8,7 @@ extends CharacterBody2D
 @export var _inventory_data: InventoryData
 @export var _hittable: Hittable
 @export var _weapon_handle: Node2D
+@export var _item_drop_scene: PackedScene
 
 var _x: float
 var _y: float
@@ -16,6 +17,7 @@ var _can_move := true
 func _ready() -> void:
 	_inventory_data.equipped_weapon.connect(_on_weapon_equipped)
 	_inventory_data.unequipped_weapon.connect(_on_weapon_unequipped)
+	_inventory_data.dropped_item.connect(_on_dropped_item)
 	var player_menu = get_tree().get_first_node_in_group("player_menu") as PlayerMenu
 	if player_menu:
 		player_menu.toggle_visibility.connect(_on_toggle_player_menu_visibility)
@@ -64,3 +66,13 @@ func _on_weapon_equipped(slot_data: SlotData) -> void:
 
 func _on_weapon_unequipped(slot_data: SlotData) -> void:
 	_weapon = null
+
+func _on_dropped_item(slot_data: SlotData) -> void:
+	var item_drop = _item_drop_scene.instantiate() as Node2D
+	for child in item_drop.get_children():
+		if child is Sprite2D:
+			child.texture = slot_data.item_data.texture
+		elif child is ItemGiver:
+			child.set_slot_data(slot_data)
+	get_tree().root.add_child(item_drop)
+	item_drop.global_position = global_position

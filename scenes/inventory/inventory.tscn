@@ -69,8 +69,8 @@ autowrap_mode = 2
 [node name="Description2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "'c' - equip / Use item
-'x' - drop / attack
-'z' - get item
+'x' - attack
+'z' - drop / get item
 'v' - Open inventory"
 label_settings = SubResource("LabelSettings_456se")
 autowrap_mode = 2

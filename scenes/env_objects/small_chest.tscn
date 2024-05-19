@@ -121,7 +121,7 @@ _taiga_texture = SubResource("AtlasTexture_q4fgl")
 _swamp_texture = SubResource("AtlasTexture_84le4")
 _tundra_texture = SubResource("AtlasTexture_chlui")
 
-[node name="ItemGiver" type="Node" parent="." node_paths=PackedStringArray("_interactable")]
+[node name="ItemGiver" type="Node2D" parent="." node_paths=PackedStringArray("_interactable")]
 script = ExtResource("9_arek7")
 _interactable = NodePath("../Interactable")
 _slot_data = SubResource("Resource_jsvl6")

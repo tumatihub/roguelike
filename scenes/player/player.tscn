@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://btwiidhdd1air"]
+[gd_scene load_steps=23 format=3 uid="uid://btwiidhdd1air"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_cajfh"]
 [ext_resource type="Texture2D" uid="uid://cbi4gfbrcr8py" path="res://sprites/player/mPlayer_ [human].png" id="1_tf072"]
 [ext_resource type="Resource" uid="uid://c310vcgre6jhy" path="res://resources/inventory/inventory.tres" id="2_2qo1a"]
+[ext_resource type="PackedScene" uid="uid://1x2pyh8jjp3b" path="res://scenes/item_drops/item_drop.tscn" id="3_47sxa"]
 [ext_resource type="PackedScene" uid="uid://c4hqgk0khjgpy" path="res://scenes/interactor.tscn" id="4_y53py"]
 [ext_resource type="PackedScene" uid="uid://bsuwoetb5xmvv" path="res://scenes/hittable.tscn" id="6_xf1ci"]
 
@@ -112,14 +113,14 @@ radius = 12.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5rd8"]
 size = Vector2(8, 13)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_body", "_weapon", "_hittable", "_weapon_handle")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_body", "_hittable", "_weapon_handle")]
 script = ExtResource("1_cajfh")
 _speed = 70.0
 _body = NodePath("Body")
-_weapon = NodePath("")
 _inventory_data = ExtResource("2_2qo1a")
 _hittable = NodePath("Hittable")
 _weapon_handle = NodePath("Body/WeaponHandle")
+_item_drop_scene = ExtResource("3_47sxa")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3.5)

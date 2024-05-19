@@ -1,5 +1,5 @@
 class_name ItemGiver
-extends Node
+extends Node2D
 
 signal item_gave
 signal inventory_full
@@ -23,6 +23,9 @@ func _ready() -> void:
 		if child is Label:
 			child.text = str(_slot_data.quantity)
 			child.global_position = owner.global_position
+
+func set_slot_data(slot_data: SlotData) -> void:
+	_slot_data = slot_data
 
 func _on_interact(interactor: Interactor) -> void:
 	var player = interactor.owner as Player

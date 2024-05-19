@@ -18,7 +18,12 @@ signal terrain_created
 @export var _swamp: Biome
 @export var _tundra: Biome
 
+@export var _random_seed := true
 @export var _seed: int
+@export var _black_screen: ColorRect
+@export var _debug := false
+
+@export var _player: Player
 
 enum WorldLayer {
 	TERRAIN,
@@ -47,19 +52,25 @@ var moisture_range: Array[float]
 var temperature_range: Array[float]
 
 func _ready() -> void:
-	pass
-	#create_terrain()
-	#_update_border()
+	if _random_seed:
+		_seed = randi()
+	await get_tree().create_timer(1).timeout
+	create_terrain()
+	_update_border()
+	_place_env_objects(_desert, _desert_cells)
+	_place_env_objects(_forest, _forest_cells)
+	_place_env_objects(_taiga, _taiga_cells)
+	_place_env_objects(_swamp, _swamp_cells)
+	_place_env_objects(_tundra, _tundra_cells)
+	_place_player()
+	_black_screen.visible = false
 
 func _input(event: InputEvent) -> void:
+	if not _debug:
+		return
 	if Input.is_action_just_pressed("ui_accept"):
 		create_terrain()
 		_update_border()
-		_place_env_objects(_desert, _desert_cells)
-		_place_env_objects(_forest, _forest_cells)
-		_place_env_objects(_taiga, _taiga_cells)
-		_place_env_objects(_swamp, _swamp_cells)
-		_place_env_objects(_tundra, _tundra_cells)
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		var tile_pos := tile_map.local_to_map(get_global_mouse_position())
 		var altitude := inverse_lerp(altitude_range[0], altitude_range[1], altitude_noise_texture.noise.get_noise_2d(tile_pos.x, tile_pos.y)) * 100
@@ -182,6 +193,11 @@ func _place_env_objects(biome: Biome, biome_cells: Array[Vector2i]) -> void:
 					place_stats.append({"name": obj.object_name, "qty": 1})
 				break
 	_print_biome_stats(place_stats, biome)
+
+func _place_player() -> void:
+	var cell := _forest_cells.pick_random() as Vector2i
+	_player.global_position = tile_map.map_to_local(cell)
+	
 
 func _print_biome_stats(place_stats: Array[Dictionary], biome: Biome) -> void:
 	print(" ----> Stats for: %s" % [biome.biome_name])

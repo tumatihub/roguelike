@@ -41,3 +41,7 @@ func _on_dropped(slot_data: SlotData) -> void:
 func _on_slot_got_focus(item_data: ItemData) -> void:
 	_item_name_label.text = item_data.item_name
 	_item_description_label.text = item_data.description
+
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()

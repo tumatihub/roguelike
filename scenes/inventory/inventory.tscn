@@ -75,4 +75,12 @@ text = "'c' - equip / Use item
 label_settings = SubResource("LabelSettings_456se")
 autowrap_mode = 2
 
+[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("4_ce7eh")
+text = "Quit"
+
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://m3vq4rmmt6p5"]
+[gd_scene load_steps=17 format=3 uid="uid://m3vq4rmmt6p5"]
 
 [ext_resource type="Script" path="res://scenes/world.gd" id="1_pl8p8"]
 [ext_resource type="Texture2D" uid="uid://dhs8xe7s5ynl4" path="res://resources/altitude.tres" id="2_bosx5"]
@@ -13,9 +13,13 @@
 [ext_resource type="PackedScene" uid="uid://m0fc0677exx3" path="res://scenes/camera_2d.tscn" id="12_4w8b5"]
 [ext_resource type="PackedScene" uid="uid://67j4u0e1i1hy" path="res://scenes/UI/player_menu.tscn" id="13_qnl1o"]
 [ext_resource type="PackedScene" uid="uid://c53o5v34slviy" path="res://scenes/UI/equipped_items.tscn" id="14_nxv8y"]
+[ext_resource type="FontFile" uid="uid://b2bxjc7a7rhsb" path="res://fonts/Kenney Future.ttf" id="15_7pl2x"]
 [ext_resource type="PackedScene" uid="uid://btwiidhdd1air" path="res://scenes/player/player.tscn" id="28_o64jl"]
 
-[node name="World" type="Node2D" node_paths=PackedStringArray("tile_map") groups=["world"]]
+[sub_resource type="LabelSettings" id="LabelSettings_ope2b"]
+font = ExtResource("15_7pl2x")
+
+[node name="World" type="Node2D" node_paths=PackedStringArray("tile_map", "_black_screen", "_player") groups=["world"]]
 y_sort_enabled = true
 script = ExtResource("1_pl8p8")
 noise_texture = ExtResource("2_bosx5")
@@ -31,6 +35,8 @@ _taiga = ExtResource("7_7an8q")
 _swamp = ExtResource("8_wl1tk")
 _tundra = ExtResource("9_jpojk")
 _seed = 100
+_black_screen = NodePath("CanvasLayer/ColorRect")
+_player = NodePath("Player")
 
 [node name="TileMap" parent="." instance=ExtResource("10_g0p4x")]
 
@@ -50,3 +56,25 @@ offset_right = 166.0
 offset_bottom = 75.0
 
 [node name="EquippedItems" parent="CanvasLayer" instance=ExtResource("14_nxv8y")]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0807833, 0.0807833, 0.0807833, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -233.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Creating the world..."
+label_settings = SubResource("LabelSettings_ope2b")

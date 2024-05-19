@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/UI/recipe_row.gd" id="1_50lc0"]
 [ext_resource type="Texture2D" uid="uid://evxvsgyquu4s" path="res://sprites/weapons/axe_ [wood].png" id="2_8poeo"]
 [ext_resource type="PackedScene" uid="uid://bcafyb5wf18p6" path="res://scenes/UI/recipe_slot.tscn" id="3_xkmr2"]
-[ext_resource type="FontFile" uid="uid://7oxj3q56bud8" path="res://fonts/bitbybit_ [Font].ttf" id="4_hqld7"]
+[ext_resource type="FontFile" uid="uid://b2bxjc7a7rhsb" path="res://fonts/Kenney Future.ttf" id="5_lu4c3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bw3ns"]
 atlas = ExtResource("2_8poeo")
@@ -12,11 +12,11 @@ region = Rect2(10, 4, 16, 16)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8yn4m"]
 line_spacing = 1.0
-font = ExtResource("4_hqld7")
+font = ExtResource("5_lu4c3")
 font_size = 7
 
 [sub_resource type="LabelSettings" id="LabelSettings_jtvgc"]
-font = ExtResource("4_hqld7")
+font = ExtResource("5_lu4c3")
 font_size = 5
 
 [node name="RecipeRow" type="HBoxContainer" node_paths=PackedStringArray("_crafted_item_texture", "_h_flow", "_button", "_fail_text_label", "_name_label")]
@@ -63,7 +63,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 focus_mode = 0
-theme_override_fonts/font = ExtResource("4_hqld7")
+theme_override_fonts/font = ExtResource("5_lu4c3")
 theme_override_font_sizes/font_size = 5
 action_mode = 0
 text = "Craft"

@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://cblbt014yhlhc"]
 
-[ext_resource type="FontFile" uid="uid://7oxj3q56bud8" path="res://fonts/bitbybit_ [Font].ttf" id="1_e602p"]
+[ext_resource type="FontFile" uid="uid://b2bxjc7a7rhsb" path="res://fonts/Kenney Future.ttf" id="1_y8kb6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_tvrw6"]
-font = ExtResource("1_e602p")
+font = ExtResource("1_y8kb6")
 font_size = 5
 
 [node name="ItemGiverQuantityLabel" type="Label"]

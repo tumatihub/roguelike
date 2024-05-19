@@ -1,12 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://crnm7akjdiu0u"]
+[gd_scene load_steps=8 format=3 uid="uid://crnm7akjdiu0u"]
 
 [ext_resource type="PackedScene" uid="uid://w4mpb648ecvi" path="res://scenes/inventory/item_slot.tscn" id="1_ph11l"]
 [ext_resource type="Script" path="res://scripts/inventory/inventory.gd" id="1_w643o"]
 [ext_resource type="Resource" uid="uid://c310vcgre6jhy" path="res://resources/inventory/inventory.tres" id="2_lo1go"]
+[ext_resource type="FontFile" uid="uid://b2bxjc7a7rhsb" path="res://fonts/Kenney Future.ttf" id="4_ce7eh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cjj5g"]
 
-[node name="Inventory" type="PanelContainer" node_paths=PackedStringArray("_grid_container") groups=["inventory"]]
+[sub_resource type="LabelSettings" id="LabelSettings_vxiw7"]
+font = ExtResource("4_ce7eh")
+font_size = 12
+
+[sub_resource type="LabelSettings" id="LabelSettings_456se"]
+font = ExtResource("4_ce7eh")
+font_size = 7
+
+[node name="Inventory" type="PanelContainer" node_paths=PackedStringArray("_grid_container", "_item_name_label", "_item_description_label") groups=["inventory"]]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -18,9 +27,15 @@ script = ExtResource("1_w643o")
 _inventory_data = ExtResource("2_lo1go")
 _grid_container = NodePath("MarginContainer/HBoxContainer/GridContainer")
 _item_slot_scene = ExtResource("1_ph11l")
+_item_name_label = NodePath("MarginContainer/HBoxContainer/VBoxContainer/ItemName")
+_item_description_label = NodePath("MarginContainer/HBoxContainer/VBoxContainer/Description")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -41,9 +56,23 @@ size_flags_horizontal = 3
 [node name="ItemName" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Item Name"
+label_settings = SubResource("LabelSettings_vxiw7")
+autowrap_mode = 2
 
 [node name="Description" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Description"
+size_flags_vertical = 3
+text = "Description Description Description Description"
+label_settings = SubResource("LabelSettings_456se")
+autowrap_mode = 2
+
+[node name="Description2" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "'c' - equip / Use item
+'x' - drop / attack
+'z' - get item
+'v' - Open inventory"
+label_settings = SubResource("LabelSettings_456se")
+autowrap_mode = 2
 
 [connection signal="focus_entered" from="." to="." method="_on_focus_entered"]

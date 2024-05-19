@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bktaeedyrbgg6"]
 
 [ext_resource type="Script" path="res://scripts/interactable.gd" id="1_pfwm6"]
-[ext_resource type="FontFile" uid="uid://7oxj3q56bud8" path="res://fonts/bitbybit_ [Font].ttf" id="2_ftooc"]
+[ext_resource type="FontFile" uid="uid://b2bxjc7a7rhsb" path="res://fonts/Kenney Future.ttf" id="2_vl4n0"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_76p1i"]
-font = ExtResource("2_ftooc")
+font = ExtResource("2_vl4n0")
 font_size = 7
 
 [node name="Interactable" type="Node2D"]

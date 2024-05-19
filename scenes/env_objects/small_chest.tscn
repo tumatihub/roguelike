@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cj28tfaabp3w8" path="res://sprites/swamp_/swamp_ [resources].png" id="7_giat1"]
 [ext_resource type="Texture2D" uid="uid://bu4b6ljh83jcq" path="res://sprites/tundra_/tundra_ [resources].png" id="8_cfahu"]
 [ext_resource type="Script" path="res://scripts/item_giver.gd" id="9_arek7"]
-[ext_resource type="Resource" uid="uid://c171nrurwf2vv" path="res://resources/items/wood.tres" id="10_ykncr"]
+[ext_resource type="Resource" uid="uid://bomi3hxy0cl4b" path="res://resources/items/weapons/wood_axe.tres" id="10_1rpek"]
 [ext_resource type="Script" path="res://scripts/inventory/slot_data.gd" id="11_rlf3o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x4pdi"]
@@ -68,8 +68,8 @@ region = Rect2(32, 80, 16, 32)
 
 [sub_resource type="Resource" id="Resource_jsvl6"]
 script = ExtResource("11_rlf3o")
-item_data = ExtResource("10_ykncr")
-quantity = 5
+item_data = ExtResource("10_1rpek")
+quantity = 1
 
 [node name="SmallChest" type="Node2D" node_paths=PackedStringArray("_interactable", "_opened_sprite", "_closed_sprite", "_item_giver")]
 script = ExtResource("1_dsaq6")
@@ -127,6 +127,5 @@ _interactable = NodePath("../Interactable")
 _slot_data = SubResource("Resource_jsvl6")
 _max_random_quantity = 5
 _min_random_quantity = 10
-_is_random = true
 
 [editable path="Interactable"]

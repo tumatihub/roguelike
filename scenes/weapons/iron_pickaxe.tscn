@@ -147,10 +147,9 @@ _data = {
 [node name="IronPickaxe" type="Node2D" node_paths=PackedStringArray("_animation_player")]
 script = ExtResource("1_asv2d")
 _animation_player = NodePath("AnimationPlayer")
-_damage = 10
+_damage = 20
 _type = 2
 _delay = 0.7
-_max_durability = 500
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false

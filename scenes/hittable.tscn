@@ -3,12 +3,29 @@
 [ext_resource type="Script" path="res://scripts/hittable.gd" id="1_qi24y"]
 [ext_resource type="PackedScene" uid="uid://dvbjtg8l5g4cv" path="res://scenes/damage_label.tscn" id="2_y8ttj"]
 
-[node name="Hittable" type="Node2D"]
+[node name="Hittable" type="Node2D" node_paths=PackedStringArray("_fg", "_bg")]
 script = ExtResource("1_qi24y")
 _damage_label_scene = ExtResource("2_y8ttj")
+_fg = NodePath("FG")
+_bg = NodePath("BG")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 z_index = 20
 debug_color = Color(0.187468, 0.62463, 0.0136412, 0.42)
+
+[node name="BG" type="ColorRect" parent="."]
+visible = false
+z_index = 20
+offset_right = 20.0
+offset_bottom = 3.0
+color = Color(0.63, 0.1386, 0.1386, 1)
+
+[node name="FG" type="ColorRect" parent="."]
+visible = false
+z_index = 20
+offset_right = 20.0
+offset_bottom = 3.0
+size_flags_horizontal = 0
+color = Color(4.81307e-07, 0.421434, 0.246048, 1)

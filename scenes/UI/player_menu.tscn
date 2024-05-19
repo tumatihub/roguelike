@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://67j4u0e1i1hy"]
 
-[ext_resource type="FontFile" uid="uid://7oxj3q56bud8" path="res://fonts/bitbybit_ [Font].ttf" id="1_qa5mx"]
+[ext_resource type="FontFile" uid="uid://b2bxjc7a7rhsb" path="res://fonts/Kenney Future.ttf" id="1_bolx6"]
 [ext_resource type="Script" path="res://scenes/UI/player_menu.gd" id="2_2klk2"]
 [ext_resource type="StyleBox" uid="uid://bbi022ayr3n6m" path="res://scenes/UI/panel_theme.tres" id="2_4oo3p"]
 [ext_resource type="PackedScene" uid="uid://crnm7akjdiu0u" path="res://scenes/inventory/inventory.tscn" id="2_xgdu3"]
@@ -29,7 +29,7 @@ offset_right = 126.0
 offset_bottom = 63.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("1_qa5mx")
+theme_override_fonts/font = ExtResource("1_bolx6")
 theme_override_font_sizes/font_size = 5
 theme_override_styles/tab_selected = SubResource("StyleBoxFlat_jmtsn")
 theme_override_styles/panel = ExtResource("2_4oo3p")

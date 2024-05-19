@@ -129,7 +129,7 @@ position = Vector2(0, 0.25)
 shape = SubResource("RectangleShape2D_i044w")
 
 [node name="Hittable" parent="." node_paths=PackedStringArray("_label_position") instance=ExtResource("8_ouafa")]
-_hit_points = 100
+_hit_points = 50
 _weapon_type = 2
 _label_position = NodePath("../Marker2D")
 

@@ -3,14 +3,14 @@
 [ext_resource type="StyleBox" uid="uid://bbi022ayr3n6m" path="res://scenes/UI/panel_theme.tres" id="1_gpy26"]
 [ext_resource type="Script" path="res://scenes/UI/recipe_slot.gd" id="2_5n1g4"]
 [ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="2_jjtsh"]
-[ext_resource type="FontFile" uid="uid://7oxj3q56bud8" path="res://fonts/bitbybit_ [Font].ttf" id="3_wsxtx"]
+[ext_resource type="FontFile" uid="uid://b2bxjc7a7rhsb" path="res://fonts/Kenney Future.ttf" id="4_6h70h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bw3ns"]
 atlas = ExtResource("2_jjtsh")
 region = Rect2(96, 128, 16, 16)
 
 [sub_resource type="LabelSettings" id="LabelSettings_agrwm"]
-font = ExtResource("3_wsxtx")
+font = ExtResource("4_6h70h")
 font_size = 5
 
 [node name="RecipeSlot" type="PanelContainer" node_paths=PackedStringArray("texture", "label")]

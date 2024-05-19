@@ -44,15 +44,9 @@ _target = NodePath("../Player")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PlayerMenu" parent="CanvasLayer" instance=ExtResource("13_qnl1o")]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -95.0
-offset_top = -60.0
-offset_right = 95.0
-offset_bottom = 60.0
-grow_horizontal = 2
+offset_left = -166.0
+offset_top = -109.0
+offset_right = 166.0
+offset_bottom = 75.0
 
 [node name="EquippedItems" parent="CanvasLayer" instance=ExtResource("14_nxv8y")]

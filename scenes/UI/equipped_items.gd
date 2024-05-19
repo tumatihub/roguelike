@@ -23,7 +23,7 @@ func _clear_weapon() -> void:
 
 func _on_equipped_item(item_data: ItemData) -> void:
 	_item_texture.texture = item_data.texture
-	_item_quantity_label.text = "x%d" % [_inventory_data.get_item_quantity(item_data)]
+	_item_quantity_label.text = "%d" % [_inventory_data.get_item_quantity(item_data)]
 
 func _on_equipped_weapon(slot_data: SlotData) -> void:
 	_weapon_texture.texture = slot_data.item_data.texture
@@ -34,7 +34,7 @@ func _on_inventory_updated() -> void:
 	if _inventory_data.current_equipped_item:
 		var quantity := _inventory_data.get_item_quantity(_inventory_data.current_equipped_item)
 		if quantity > 0:
-			_item_quantity_label.text = "x%d" % [quantity]
+			_item_quantity_label.text = "%d" % [quantity]
 		else:
 			_inventory_data.current_equipped_item = null
 			_clear_item()

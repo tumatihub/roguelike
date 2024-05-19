@@ -147,7 +147,7 @@ _data = {
 [node name="Iron_Axe" type="Node2D" node_paths=PackedStringArray("_animation_player")]
 script = ExtResource("1_lbo4a")
 _animation_player = NodePath("AnimationPlayer")
-_damage = 50
+_damage = 20
 _type = 1
 _delay = 0.7
 

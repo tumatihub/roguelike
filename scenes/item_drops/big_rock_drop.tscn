@@ -27,8 +27,8 @@ texture = SubResource("AtlasTexture_0tki3")
 script = ExtResource("2_fxuau")
 _interactable = NodePath("../Interactable")
 _slot_data = SubResource("Resource_jqyir")
-_max_random_quantity = 10
-_min_random_quantity = 15
+_max_random_quantity = 15
+_min_random_quantity = 20
 _is_random = true
 
 [node name="ItemGiverQuantityLabel" parent="ItemGiver" instance=ExtResource("5_w4km2")]

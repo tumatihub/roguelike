@@ -3,6 +3,7 @@ extends PanelContainer
 
 signal equiped(slot_data: SlotData)
 signal dropped(slot_data: SlotData)
+signal got_focus(item_data: ItemData)
 
 @export var _texture: TextureRect
 @export var _quantity_label: Label
@@ -17,7 +18,7 @@ func update(slot_data: SlotData) -> void:
 	_slot_data = slot_data
 	_texture.texture = slot_data.item_data.texture
 	_texture.show()
-	_quantity_label.text = "x%d" % [slot_data.quantity]
+	_quantity_label.text = "%d" % [slot_data.quantity]
 	_quantity_label.show()
 
 
@@ -33,6 +34,8 @@ func _input(event: InputEvent) -> void:
 
 func _on_focus_entered() -> void:
 	self_modulate = Color.WHITE
+	if _slot_data:
+		got_focus.emit(_slot_data.item_data)
 
 
 func _on_focus_exited() -> void:

@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://dvbjtg8l5g4cv"]
 
-[ext_resource type="FontFile" uid="uid://7oxj3q56bud8" path="res://fonts/bitbybit_ [Font].ttf" id="1_10x5i"]
+[ext_resource type="FontFile" uid="uid://b2bxjc7a7rhsb" path="res://fonts/Kenney Future.ttf" id="1_0j44o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vrsm8"]
-font = ExtResource("1_10x5i")
+font = ExtResource("1_0j44o")
 font_size = 7
 
 [sub_resource type="Animation" id="Animation_pltec"]

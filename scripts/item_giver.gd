@@ -21,7 +21,7 @@ func _ready() -> void:
 		_slot_data = new_slot
 	for child in get_children():
 		if child is Label:
-			child.text = "x"+str(_slot_data.quantity)
+			child.text = str(_slot_data.quantity)
 			child.global_position = owner.global_position
 
 func _on_interact(interactor: Interactor) -> void:

@@ -1,16 +1,16 @@
 [gd_scene load_steps=7 format=3 uid="uid://c53o5v34slviy"]
 
 [ext_resource type="Script" path="res://scenes/UI/equipped_items.gd" id="1_ftm0p"]
-[ext_resource type="FontFile" uid="uid://7oxj3q56bud8" path="res://fonts/bitbybit_ [Font].ttf" id="2_052y3"]
 [ext_resource type="Resource" uid="uid://c310vcgre6jhy" path="res://resources/inventory/inventory.tres" id="2_x4ff5"]
 [ext_resource type="StyleBox" uid="uid://bbi022ayr3n6m" path="res://scenes/UI/panel_theme.tres" id="3_ycakc"]
+[ext_resource type="FontFile" uid="uid://b2bxjc7a7rhsb" path="res://fonts/Kenney Future.ttf" id="4_tpupy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_igb3b"]
-font = ExtResource("2_052y3")
+font = ExtResource("4_tpupy")
 font_size = 6
 
 [sub_resource type="LabelSettings" id="LabelSettings_8cnq4"]
-font = ExtResource("2_052y3")
+font = ExtResource("4_tpupy")
 font_size = 6
 
 [node name="EquippedItems" type="Control" node_paths=PackedStringArray("_weapon_texture", "_weapon_durability_label", "_item_texture", "_item_quantity_label")]

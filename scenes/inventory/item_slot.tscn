@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/inventory/item_slot.gd" id="1_4y3u0"]
 [ext_resource type="Texture2D" uid="uid://baqgunsnxs5ak" path="res://sprites/forest_/forest_ [resources].png" id="1_qh8l0"]
-[ext_resource type="FontFile" uid="uid://7oxj3q56bud8" path="res://fonts/bitbybit_ [Font].ttf" id="2_y3npb"]
+[ext_resource type="FontFile" uid="uid://b2bxjc7a7rhsb" path="res://fonts/Kenney Future.ttf" id="3_yyecx"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yp4kp"]
 bg_color = Color(0.154876, 0.154876, 0.154876, 1)
@@ -19,12 +19,12 @@ atlas = ExtResource("1_qh8l0")
 region = Rect2(144, 16, 16, 16)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2685s"]
-font = ExtResource("2_y3npb")
+font = ExtResource("3_yyecx")
 font_size = 5
 
 [node name="ItemSlot" type="PanelContainer" node_paths=PackedStringArray("_texture", "_quantity_label")]
 self_modulate = Color(0.65098, 0.490196, 0.356863, 1)
-custom_minimum_size = Vector2(20, 20)
+custom_minimum_size = Vector2(26, 26)
 offset_right = 16.0
 offset_bottom = 16.0
 focus_mode = 2

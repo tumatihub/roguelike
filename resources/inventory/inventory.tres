@@ -1,72 +1,7 @@
-[gd_resource type="Resource" script_class="InventoryData" load_steps=19 format=3 uid="uid://c310vcgre6jhy"]
+[gd_resource type="Resource" script_class="InventoryData" load_steps=2 format=3 uid="uid://c310vcgre6jhy"]
 
 [ext_resource type="Script" path="res://scripts/inventory/inventory_data.gd" id="1_2m58h"]
-[ext_resource type="Resource" uid="uid://duxyvk2x2l3da" path="res://resources/items/iron.tres" id="2_yry0q"]
-[ext_resource type="Script" path="res://scripts/inventory/slot_data.gd" id="3_b5hly"]
-[ext_resource type="Resource" uid="uid://di8tx7vpyb837" path="res://resources/items/gold.tres" id="4_0lc6y"]
-[ext_resource type="Resource" uid="uid://di2miqcg72ihx" path="res://resources/items/diamond.tres" id="5_fryb7"]
-[ext_resource type="Resource" uid="uid://c171nrurwf2vv" path="res://resources/items/wood.tres" id="6_wjrsx"]
-
-[sub_resource type="Resource" id="Resource_sebso"]
-script = ExtResource("3_b5hly")
-item_data = ExtResource("2_yry0q")
-quantity = 20
-
-[sub_resource type="Resource" id="Resource_ptg6a"]
-script = ExtResource("3_b5hly")
-item_data = ExtResource("4_0lc6y")
-quantity = 20
-
-[sub_resource type="Resource" id="Resource_1537e"]
-script = ExtResource("3_b5hly")
-item_data = ExtResource("5_fryb7")
-quantity = 20
-
-[sub_resource type="Resource" id="Resource_7i1bi"]
-script = ExtResource("3_b5hly")
-item_data = ExtResource("6_wjrsx")
-quantity = 20
-
-[sub_resource type="Resource" id="Resource_nocl7"]
-script = ExtResource("3_b5hly")
-item_data = ExtResource("6_wjrsx")
-quantity = 20
-
-[sub_resource type="Resource" id="Resource_3uium"]
-script = ExtResource("3_b5hly")
-item_data = ExtResource("6_wjrsx")
-quantity = 20
-
-[sub_resource type="Resource" id="Resource_npl5p"]
-script = ExtResource("3_b5hly")
-item_data = ExtResource("6_wjrsx")
-quantity = 20
-
-[sub_resource type="Resource" id="Resource_4amen"]
-script = ExtResource("3_b5hly")
-item_data = ExtResource("6_wjrsx")
-quantity = 20
-
-[sub_resource type="Resource" id="Resource_7prtq"]
-script = ExtResource("3_b5hly")
-item_data = ExtResource("6_wjrsx")
-quantity = 20
-
-[sub_resource type="Resource" id="Resource_b5bcs"]
-script = ExtResource("3_b5hly")
-item_data = ExtResource("2_yry0q")
-quantity = 20
-
-[sub_resource type="Resource" id="Resource_hx70y"]
-script = ExtResource("3_b5hly")
-item_data = ExtResource("4_0lc6y")
-quantity = 20
-
-[sub_resource type="Resource" id="Resource_lnbrk"]
-script = ExtResource("3_b5hly")
-item_data = ExtResource("5_fryb7")
-quantity = 20
 
 [resource]
 script = ExtResource("1_2m58h")
-slot_datas = Array[ExtResource("3_b5hly")]([SubResource("Resource_sebso"), SubResource("Resource_ptg6a"), SubResource("Resource_1537e"), SubResource("Resource_7i1bi"), SubResource("Resource_nocl7"), SubResource("Resource_3uium"), SubResource("Resource_npl5p"), SubResource("Resource_4amen"), SubResource("Resource_7prtq"), SubResource("Resource_b5bcs"), SubResource("Resource_hx70y"), SubResource("Resource_lnbrk"), null, null, null, null, null, null])
+slot_datas = Array[Resource("res://scripts/inventory/slot_data.gd")]([null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])

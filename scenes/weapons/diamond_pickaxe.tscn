@@ -147,10 +147,10 @@ _data = {
 [node name="DiamondPickaxe" type="Node2D" node_paths=PackedStringArray("_animation_player")]
 script = ExtResource("1_ei8nn")
 _animation_player = NodePath("AnimationPlayer")
-_damage = 10
+_damage = 100
 _type = 2
 _delay = 0.7
-_max_durability = 500
+_max_durability = 2000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
